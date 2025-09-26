@@ -18,7 +18,7 @@ struct ContentView: View {
             }
             .padding()
             
-            //Exemplo de navegação
+            //Exemplo de navegação teste teste
             // O NavigationLink em si
                             NavigationLink {
                                 // 1. O destino: a View para onde você quer ir
