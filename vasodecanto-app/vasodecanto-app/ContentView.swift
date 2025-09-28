@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    // Variável de estado para controlar se a sheet está visível
+    @State private var showingBottomSheet = false
     var body: some View {
         NavigationStack() {
             VStack {
@@ -28,7 +30,14 @@ struct ContentView: View {
                                 Text("Tap me") // Ele automaticamente parece um botão de navegação
                             }
                             .buttonStyle(.borderedProminent)
-            //teste branch main
+            Button("Abrir Bottom Sheet") {
+                        showingBottomSheet = true
+                    }
+                    // 2. O modificador .sheet()
+                    .sheet(isPresented: $showingBottomSheet) {
+                        // conteúdo da bottomsheet
+                        PlantDetailBottomSheet()
+                    }
         }
     }
 }
