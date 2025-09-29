@@ -26,24 +26,21 @@ struct PlantDetailBottomSheet: View {
                     // Ação do botão Login
                     }
                     .padding(.vertical, 16)
-                    .frame(maxWidth: .infinity) // Faz o botão se expandir horizontalmente
+                    .frame(maxWidth: .infinity)
+                    // Faz o botão se expandir horizontalmente
                     .background(Color("PrimaryAppColor")) // Cor Marrom/Ferrugem
                     .foregroundColor(.white)
-                    .font(.callout)
-                    .fontWeight(.bold)
+                    .font(.custom("Heebo-Bold", size: 16.0))
                     .cornerRadius(16)
                     Spacer().frame(width: 8)
-                    // Botão 2: Mais Informações (Fundo Cinza)
                     Button("Mais Informações") {
                         // Ação do botão Mais Informações
                     }
                     .padding(.vertical, 16)
-                    .frame(maxWidth: .infinity) // Faz o botão se expandir horizontalmente
+                    .frame(maxWidth: .infinity)
                     .background(Color("DefaultGrayColor"))
-                    // Cor Cinza Claro do Sistema (melhor para Light/Dark Mode)
                     .foregroundColor(.white)
-                    .font(.callout)
-                    .fontWeight(.bold)
+                    .font(.custom("Heebo-Bold", size: 16.0))
                     .cornerRadius(16)
                 }
                 //Empurra o conteúdo para cima
@@ -68,4 +65,9 @@ struct PlantDetailBottomSheet: View {
         .presentationDetents([.fraction(0.7)])
         .presentationCornerRadius(48)
     }
+}
+
+
+#Preview {
+    ContentView()
 }
