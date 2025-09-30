@@ -1,0 +1,78 @@
+# .swiftlint.yml
+
+excluded:
+  - Pods
+  - Carthage
+  - .build
+  - Generated
+
+opt_in_rules:
+  - empty_count
+  - empty_string
+  - closure_spacing
+  - vertical_parameter_alignment
+  - vertical_whitespace_between_cases
+  - implicit_return
+  - multiline_parameters
+  - number_separator
+  - operator_usage_whitespace
+  - trailing_newline
+  - trailing_whitespace
+
+line_length:
+  warning: 120
+  error: 150
+  ignores_comments: true
+  ignores_urls: true
+
+trailing_whitespace:
+  ignores_empty_lines: false
+  ignores_comments: false
+
+trailing_newline: enabled
+
+identifier_name:
+  min_length: 2
+  excluded:
+    - i
+    - j
+    - id
+    - x
+    - y
+
+type_name:
+  min_length: 3
+  max_length: 40
+
+file_length:
+  warning: 400
+  error: 600
+
+type_body_length:
+  warning: 200
+  error: 300
+
+function_body_length:
+  warning: 40
+  error: 60
+
+function_parameter_count:
+  warning: 5
+  error: 8
+
+cyclomatic_complexity:
+  warning: 10
+  error: 20
+
+force_cast: error
+force_try: warning
+force_unwrapping: warning
+
+implicit_return: warning
+empty_enum_arguments: warning
+empty_count: warning
+
+unused_closure_parameter: warning
+unused_import: warning
+
+
