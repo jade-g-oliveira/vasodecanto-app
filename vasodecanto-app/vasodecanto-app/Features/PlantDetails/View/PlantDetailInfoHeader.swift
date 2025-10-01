@@ -1,14 +1,13 @@
-//
 //  PlantDetailInfoTexts.swift
 //  vasodecanto-app
 //
 //  Created by Jade Oliveira on 29/09/25.
-//
+
 import SwiftUI
 
 struct PlantDetailInfoHeader: View {
     var body: some View {
-        VStack(spacing:0) {
+        VStack {
             Image("PlantIlustration1")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -23,7 +22,7 @@ struct PlantDetailInfoHeader: View {
                 .foregroundColor(Color("GreenTextColor"))
             Spacer()
                 .frame(height: 8)
-            Text("Texto demonstrativo Texto demonstrativo Texto demonstrativo Texto demonstrativo Texto demonstrativo Texto ")
+            Text("Texto demonstrativo Texto demonstrativo Texto demonstrativo Texto")
                 .font(.custom("Heebo-Regular", size: 14.0))
                 .foregroundColor(Color("GreenTextColor"))
                 .multilineTextAlignment(.center)
