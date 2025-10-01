@@ -1,10 +1,9 @@
-//
 //  FontSize.swift
 //  vasodecanto-app
 //
 //  Created by Jade Oliveira on 29/09/25.
-//
-import SwiftUI
+
+import Foundation
 
 // MARK: - Tamanhos de Fonte Base
 struct FontSize {

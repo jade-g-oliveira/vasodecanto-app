@@ -1,9 +1,3 @@
-//
-//  PlantDetailInfo.swift
-//  vasodecanto-app
-//
-//  Created by Jade Oliveira on 28/09/25.
-//
 import SwiftUI
 
 struct PlantDetailInfoView: View {
@@ -11,8 +5,6 @@ struct PlantDetailInfoView: View {
         // 2. A Imagem/Ilustração
         VStack {
             PlantDetailInfoHeader()
-            
-            //Tags de benefícios e infos
             VStack(spacing: 6) {
                 HStack(spacing: 8) {
                     TagView(text: "Purificação",
@@ -33,9 +25,4 @@ struct PlantDetailInfoView: View {
             }
         }
     }
-}
-
-
-#Preview {
-    ContentView()
 }

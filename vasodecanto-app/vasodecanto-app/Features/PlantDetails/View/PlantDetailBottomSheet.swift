@@ -1,9 +1,8 @@
-//
 //  PlantDetailBottomSheet.swift
 //  vasodecanto-app
 //
 //  Created by Jade Oliveira on 28/09/25.
-//
+
 import SwiftUI
 
 struct PlantDetailBottomSheet: View {
@@ -13,20 +12,16 @@ struct PlantDetailBottomSheet: View {
             VStack {
                 Spacer()
                     .frame(height: 40)
-                
                 PlantDetailInfoView()
-                
                 Spacer()
                     .frame(height: 40)
-                
                 Divider()
-                
                 Spacer()
                     .frame(height: 8)
                 HStack {
                     // Botão 1: Login (Fundo Marrom)
                     Button("Login") {
-                    // Ação do botão Login
+                        // Ação do botão Login
                     }
                     .padding(.vertical, 16)
                     // Faz o botão se expandir horizontalmente
@@ -47,10 +42,9 @@ struct PlantDetailBottomSheet: View {
                     .cornerRadius(16)
                 }
                 .padding(.horizontal, 24)
-                //Empurra o conteúdo para cima
+                // Empurra o conteúdo para cima
                 Spacer()
             }
-            
             // 5. O Botão de Fechar ('X')
             Button {
                 dismiss() // Chama a ação para fechar a sheet
