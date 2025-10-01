@@ -4,7 +4,6 @@
 //
 //  Created by Jade Oliveira on 28/09/25.
 //
-
 import SwiftUI
 
 struct PlantDetailBottomSheet: View {
@@ -51,8 +50,6 @@ struct PlantDetailBottomSheet: View {
                 //Empurra o conteúdo para cima
                 Spacer()
             }
-            
-            
             
             // 5. O Botão de Fechar ('X')
             Button {
