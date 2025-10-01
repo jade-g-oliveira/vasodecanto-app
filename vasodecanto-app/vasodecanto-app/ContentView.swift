@@ -27,7 +27,7 @@ struct ContentView: View {
                                 LoginView()
                             } label: {
                                 // 2. O rótulo: o que o usuário vai ver (seu botão!)
-                                Text("Tap me") // Ele automaticamente parece um botão de navegação
+                                Text("Login") // Ele automaticamente parece um botão de navegação
                             }
                             .buttonStyle(.borderedProminent)
             Button("Abrir Bottom Sheet") {
@@ -38,6 +38,16 @@ struct ContentView: View {
                         // conteúdo da bottomsheet
                         PlantDetailBottomSheet()
                     }
+            
+            NavigationLink {
+                // 1. O destino: a View para onde você quer ir
+                ProfileView()
+            } label: {
+                // 2. O rótulo
+                Text("Perfil")
+            }
+            .buttonStyle(.borderedProminent)
+            
         }
     }
 }
