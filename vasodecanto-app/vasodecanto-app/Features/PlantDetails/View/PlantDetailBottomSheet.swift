@@ -58,7 +58,7 @@ struct PlantDetailBottomSheet: View {
         }
         .padding(.vertical, 16)
         // controla o tamanho da bottomsheet
-        .presentationDetents([.fraction(0.85)])
+        .presentationDetents([.fraction(0.80)])
         .presentationCornerRadius(48)
     }
 }

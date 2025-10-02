@@ -15,7 +15,6 @@ struct AppFont {
     static func heeboBody() -> Font {
         .custom("Heebo-Regular", size: FontSize.body)
     }
-    
     static func heeboBodyBold() -> Font {
         .custom("Heebo-Bold", size: FontSize.body)
     }

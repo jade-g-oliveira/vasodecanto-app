@@ -13,12 +13,12 @@ struct TagView: View {
     var body: some View {
         HStack(spacing: 4) {
             Image(systemName: iconName)
-                .font(.title2)
-                .fontWeight(.bold)
-            Text(text).font(AppFont.heeboBody())
+                .font(.custom("Heebo-Bold", size: FontSize.caption, relativeTo: .caption))
+            Text(text).font(AppFont.heeboCaption())
         }
         // Padding interno (Espaçamento dentro da tag)
-        .padding(.vertical, 4)
+//        .padding(.vertical, 4)
+        .frame(height: 24)
         .padding(.horizontal, 16)
         .background(backgroundColor)
         .foregroundColor(textColor)
