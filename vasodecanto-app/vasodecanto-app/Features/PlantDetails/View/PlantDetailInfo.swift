@@ -6,7 +6,7 @@ struct PlantDetailInfoView: View {
         VStack {
             PlantDetailInfoHeader()
             VStack(spacing: 6) {
-                HStack(spacing: 8) {
+                HStack(spacing: 16) {
                     TagView(text: "Purificação",
                             iconName: "wind", // Ícone de vento
                             backgroundColor: Color("LightBlue"), textColor: Color(.white))
