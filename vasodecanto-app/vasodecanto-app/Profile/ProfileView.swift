@@ -16,20 +16,20 @@ struct ProfileView: View {
 
     var body: some View {
         VStack {
-            Spacer(minLength: 60)
+            Spacer(minLength: 120)
 
             // Seção do perfil (avatar, nome e e-mail)
-            VStack(spacing: 12) {
+            VStack(spacing: 16) {
                 Circle()
                     .fill(Color(.systemGray4))
-                    .frame(width: 160, height: 160)
+                    .frame(width: 170, height: 170)
 
                 Text(userName)
-                    .font(.custom("Heebo-Bold", size: 20))
+                    .font(.custom("Heebo-Bold", size: 16))
                     .foregroundStyle(Color("GreenTextColor"))
 
                 Text(userEmail)
-                    .font(.custom("Heebo-Regular", size: 20))
+                    .font(.custom("Heebo-Regular", size: 16))
                     .foregroundStyle(Color("GreenTextColor"))
             }
             .padding(.vertical, 24)
@@ -44,7 +44,7 @@ struct ProfileView: View {
                     .font(.custom("Heebo-SemiBold", size: 16))
                     .foregroundStyle(Color(.systemRed))
                     .frame(maxWidth: .infinity)
-                    .frame(height: 52)
+                    .frame(height: 56)
                     .background(.white)
                     .clipShape(Capsule())
                     .overlay(
@@ -63,10 +63,10 @@ struct ProfileView: View {
                 Text("Você pode entrar novamente quando quiser.")
             }
 
-            Spacer(minLength: 40)
+            Spacer(minLength: 120)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color("ColorBackgroundLogOff")) // Fundo claro
+        .background(Color("GrayBackgroundColor")) // Fundo claro
     }
 }
 
