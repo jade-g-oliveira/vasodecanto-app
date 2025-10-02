@@ -28,7 +28,7 @@ struct PlantDetailBottomSheet: View {
                     .frame(maxWidth: .infinity)
                     .background(Color("PrimaryAppColor"))
                     .foregroundColor(.white)
-                    .font(.custom("Heebo-Bold", size: 16.0))
+                    .font(AppFont.heeboBodyBold())
                     .cornerRadius(16)
                     Spacer().frame(width: 8)
                     Button("Mais Informações") {
@@ -38,7 +38,7 @@ struct PlantDetailBottomSheet: View {
                     .frame(maxWidth: .infinity)
                     .background(Color("DefaultGrayColor"))
                     .foregroundColor(.white)
-                    .font(.custom("Heebo-Bold", size: 16.0))
+                    .font(AppFont.heeboBodyBold())
                     .cornerRadius(16)
                 }
                 .padding(.horizontal, 24)

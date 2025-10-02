@@ -23,7 +23,7 @@ struct PlantDetailInfoHeader: View {
             Spacer()
                 .frame(height: 8)
             Text("Texto demonstrativo Texto demonstrativo Texto demonstrativo Texto")
-                .font(.custom("Heebo-Regular", size: 14.0))
+                .font(AppFont.heeboCaption())
                 .foregroundColor(Color("GreenTextColor"))
                 .multilineTextAlignment(.center)
                 .lineLimit(3)
