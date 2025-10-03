@@ -13,26 +13,30 @@ struct PlantDetailInfoHeader: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 200, height: 200)
             Spacer()
-                .frame(height: 8)
+                .frame(height: Spacing.extraSmall)
             Text("Calatéia")
-                .font(.custom("Staatliches-Regular", size: 32.0))
+                .font(AppFont.staatlichesRegularTitle())
                 .foregroundColor(Color("GreenTextColor"))
             Text("calathea reseopicta")
-                .font(.custom("Alegreya-Italic", size: 16.0))
+                .font(AppFont.alegreyaItalicBody())
                 .foregroundColor(Color("GreenTextColor"))
             Spacer()
-                .frame(height: 8)
+                .frame(height: Spacing.extraSmall)
             Text("Texto demonstrativo Texto demonstrativo Texto demonstrativo Texto")
                 .font(AppFont.heeboCaption())
                 .foregroundColor(Color("GreenTextColor"))
                 .multilineTextAlignment(.center)
                 .lineLimit(3)
             Spacer()
-                .frame(height: 8)
+                .frame(height: Spacing.extraSmall)
             Text("Benefícios:")
-                .font(.custom("Heebo-Medium", size: 14.0))
+                .font(AppFont.heeboMediumCaption())
                 .foregroundColor(Color.black)
         }
-        .padding(.horizontal, 80)
+        .padding(.horizontal, Spacing.xxLarge)
     }
+}
+
+#Preview {
+    ContentView()
 }
