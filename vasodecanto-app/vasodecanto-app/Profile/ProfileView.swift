@@ -56,7 +56,7 @@ struct ProfileView: View {
             .alert("Deseja sair da sua conta?", isPresented: $showingLogoutAlert) {
                 Button("Cancelar", role: .cancel) { }
                 Button("Sair", role: .destructive) {
-                    // TODO: implementar logoff real (ex.: limpar sessão, navegar, etc.)
+                    // MARK: implementar logoff real (ex.: limpar sessão, navegar, etc.)
                     print("Usuário saiu")
                 }
             } message: {
