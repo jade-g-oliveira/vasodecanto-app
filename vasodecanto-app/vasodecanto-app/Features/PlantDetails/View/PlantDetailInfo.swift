@@ -6,20 +6,20 @@ struct PlantDetailInfoView: View {
         VStack {
             PlantDetailInfoHeader()
             VStack(spacing: 6) {
-                HStack(spacing: 16) {
+                HStack(spacing: Spacing.small) {
                     TagView(text: "Purificação",
-                            iconName: "wind", // Ícone de vento
+                            iconName: "wind",
                             backgroundColor: Color("LightBlue"), textColor: Color(.white))
                     TagView(text: "Humidificação",
-                            iconName: "humidity", // Ícone de vento
+                            iconName: "humidity",
                             backgroundColor: Color("LightBlue"), textColor: Color(.white))
                 }
-                HStack(spacing: 8) {
+                HStack(spacing: Spacing.extraSmall) {
                     TagView(text: "Externo",
-                            iconName: "thermometer.sun.fill", // Ícone de vento
+                            iconName: "thermometer.sun.fill",
                             backgroundColor: Color("YellowTagColor"), textColor: Color(.black))
                     TagView(text: "PetFriendly",
-                            iconName: "pawprint.circle", // Ícone de vento
+                            iconName: "pawprint.circle",
                             backgroundColor: Color("GreenTagColor"), textColor: Color(.white))
                 }
             }

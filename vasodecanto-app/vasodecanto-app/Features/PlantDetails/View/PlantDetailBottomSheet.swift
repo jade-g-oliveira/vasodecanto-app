@@ -11,54 +11,52 @@ struct PlantDetailBottomSheet: View {
         ZStack(alignment: .topTrailing) {
             VStack {
                 Spacer()
-                    .frame(height: 40)
+                    .frame(height: Spacing.large)
                 PlantDetailInfoView()
                 Spacer()
-                    .frame(height: 40)
+                    .frame(height: Spacing.large)
                 Divider()
                 Spacer()
-                    .frame(height: 8)
+                    .frame(height: Spacing.extraSmall)
                 HStack {
                     // Botão 1: Login (Fundo Marrom)
                     Button("Login") {
                         // Ação do botão Login
                     }
-                    .padding(.vertical, 16)
+                    .padding(.vertical, Spacing.small)
                     // Faz o botão se expandir horizontalmente
                     .frame(maxWidth: .infinity)
                     .background(Color("PrimaryAppColor"))
                     .foregroundColor(.white)
-                    .font(AppFont.heeboBodyBold())
-                    .cornerRadius(16)
-                    Spacer().frame(width: 8)
+                    .font(AppFont.heeboBoldBody())
+                    .cornerRadius(Spacing.small)
+                    Spacer().frame(width: Spacing.extraSmall)
                     Button("Mais Informações") {
                         // Ação do botão Mais Informações
                     }
-                    .padding(.vertical, 16)
+                    .padding(.vertical, Spacing.small)
                     .frame(maxWidth: .infinity)
                     .background(Color("DefaultGrayColor"))
                     .foregroundColor(.white)
-                    .font(AppFont.heeboBodyBold())
-                    .cornerRadius(16)
+                    .font(AppFont.heeboBoldBody())
+                    .cornerRadius(Spacing.small)
                 }
-                .padding(.horizontal, 24)
-                // Empurra o conteúdo para cima
-                Spacer()
+                .padding(.horizontal, Spacing.regular)
             }
             // 5. O Botão de Fechar ('X')
             Button {
                 dismiss() // Chama a ação para fechar a sheet
             } label: {
                 Image(systemName: "xmark")
-                    .font(.system(size: 24, weight: .bold))
+                    .font(.system(size: Spacing.regular, weight: .bold))
                     .foregroundColor(Color("GreenTextColor"))
-                    .padding(.vertical, 8)
-                    .padding(.horizontal, 24)
+                    .padding(.vertical, Spacing.extraSmall)
+                    .padding(.horizontal, Spacing.regular)
             }
         }
-        .padding(.vertical, 16)
+        .padding(.vertical, Spacing.small)
         // controla o tamanho da bottomsheet
         .presentationDetents([.fraction(0.80)])
-        .presentationCornerRadius(48)
+        .presentationCornerRadius(Spacing.extraLarge)
     }
 }

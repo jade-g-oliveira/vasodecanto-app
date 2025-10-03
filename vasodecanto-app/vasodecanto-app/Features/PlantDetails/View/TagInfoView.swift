@@ -11,17 +11,15 @@ struct TagView: View {
     let backgroundColor: Color
     let textColor: Color
     var body: some View {
-        HStack(spacing: 4) {
+        HStack(spacing: Spacing.micro) {
             Image(systemName: iconName)
-                .font(.custom("Heebo-Bold", size: FontSize.caption, relativeTo: .caption))
+                .font(AppFont.heeboBoldCaption())
             Text(text).font(AppFont.heeboCaption())
         }
-        // Padding interno (Espaçamento dentro da tag)
-//        .padding(.vertical, 4)
-        .frame(height: 24)
-        .padding(.horizontal, 16)
+        .frame(height: Spacing.regular)
+        .padding(.horizontal, Spacing.small)
         .background(backgroundColor)
         .foregroundColor(textColor)
-        .cornerRadius(24)
+        .cornerRadius(Spacing.regular)
     }
 }
