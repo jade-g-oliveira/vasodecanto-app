@@ -40,14 +40,22 @@ struct ContentView: View {
             }
             .buttonStyle(.borderedProminent)
             Button("Abrir Bottom Sheet") {
-                showingBottomSheet = true
+                        showingBottomSheet = true
+                    }
+                    // 2. O modificador .sheet()
+                    .sheet(isPresented: $showingBottomSheet) {
+                        // conteúdo da bottomsheet
+                        PlantDetailBottomSheet()
+                    }
+            
+            NavigationLink {
+                // 1. O destino: a View para onde você quer ir
+                ProfileView()
+            } label: {
+                // 2. O rótulo
+                Text("Perfil")
             }
-
-            // 2. O modificador .sheet()
-            .sheet(isPresented: $showingBottomSheet) {
-                // conteúdo da bottomsheet
-                PlantDetailBottomSheet()
-            }
+            .buttonStyle(.borderedProminent)
         }
     }
 }
