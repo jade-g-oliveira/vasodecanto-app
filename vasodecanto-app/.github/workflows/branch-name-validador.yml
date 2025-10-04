@@ -1,39 +1,29 @@
-name: Branc Name Validator
+name: Branch Name Validation
 
 on:
   pull_request:
-    types: [opened, reopened, synchronize]
+    branches:
+      - '*'
 
 jobs:
-  validate_branch_name:
-    name: Verificar Prefixo da Branch
+  validate-branch-name:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Verificar se o nome da branch segue o padrão
-        shell: bash
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set script permissions
+        run: chmod +x ./.github/scripts/validate-branch-name.sh
+
+      - name: Get branch name
+        id: get_branch
         run: |
-          # 1. Get the branch's name
-          BRANCH_NAME="${{ github.head_ref }}"
-
-          # 2. Define the regex to validate the name
-          #    A regex: ^(enhancement|fix|hotfix|feature|release)\/.*
-          #    - ^: Começa com
-          #    - (...): Um dos grupos
-          #    - \/: Seguido por uma barra (escapada)
-          #    - .*: Seguido por qualquer caractere
-          ALLOWED_PREFIXES_REGEX="^(enhancement|fix|hotfix|feature|release)\/.*"
-
-          echo "Verified branch name: $BRANCH_NAME"
-          echo "Allowed branch name pattern: enhancement/, fix/, hotfix/, feature/, release/"
-
-          # 3. Use the command 'grep -E' to verify if the branch matches with the pattern
-          # Exit code 0 (sucess) means that is okay.
-          if [[ "$BRANCH_NAME" =~ $ALLOWED_PREFIXES_REGEX ]]; then
-            echo "✅ Success! The branch name '$BRANCH_NAME' is correct and matches with the allowed prefix."
+          if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
+            BRANCH_NAME=${GITHUB_HEAD_REF}
           else
-            echo "❌ FAIL! The branch name '$BRANCH_NAME' is not allowed"
-            echo "The allowed prefix are: enhancement, fix, hotfix, feature, release."
-            echo "The required formatted is: prefix/description-of-you-done"
-            exit 1 # Exit code 1 make the job fail
+            BRANCH_NAME=${GITHUB_REF#refs/heads/}
           fi
+
+      - name: Validate Branch Name
+        run: ./.github/scripts/validate-branch-name.sh ${{ steps.get_branch.outputs.branch }}
