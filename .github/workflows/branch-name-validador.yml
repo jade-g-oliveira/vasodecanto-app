@@ -1,4 +1,4 @@
-name: Branc Name Validator
+name: Branch Name Validator
 
 on:
   pull_request:
@@ -6,7 +6,7 @@ on:
 
 jobs:
   validate_branch_name:
-    name: Verificar Prefixo da Branch
+    name: Verify Branch Name Prefix
     runs-on: ubuntu-latest
 
     steps:
