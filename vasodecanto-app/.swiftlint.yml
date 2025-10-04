@@ -18,10 +18,14 @@ opt_in_rules:
   - operator_usage_whitespace
   - trailing_newline
   - trailing_whitespace
+  - force_unwrapping
+
+analyzer_rules:
+  - unused_import
 
 line_length:
   warning: 120
-  error: 150
+  error: 220
   ignores_comments: true
   ignores_urls: true
 
@@ -29,7 +33,7 @@ trailing_whitespace:
   ignores_empty_lines: false
   ignores_comments: false
 
-trailing_newline: enabled
+trailing_newline: warning
 
 identifier_name:
   min_length: 2

@@ -1,9 +1,7 @@
-//
 //  PlantDetailBottomSheet.swift
 //  vasodecanto-app
 //
 //  Created by Jade Oliveira on 28/09/25.
-//
 
 import SwiftUI
 
@@ -12,62 +10,53 @@ struct PlantDetailBottomSheet: View {
     var body: some View {
         ZStack(alignment: .topTrailing) {
             VStack {
-                // 1. O Espaçamento Superior (Padding)
                 Spacer()
-                    .frame(height: 40)
-                
+                    .frame(height: Spacing.large)
                 PlantDetailInfoView()
-                
                 Spacer()
-                    .frame(height: 40)
+                    .frame(height: Spacing.large)
+                Divider()
+                Spacer()
+                    .frame(height: Spacing.extraSmall)
                 HStack {
                     // Botão 1: Login (Fundo Marrom)
                     Button("Login") {
-                    // Ação do botão Login
+                        // Ação do botão Login
                     }
-                    .padding(.vertical, 16)
-                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, Spacing.small)
                     // Faz o botão se expandir horizontalmente
-                    .background(Color("PrimaryAppColor")) // Cor Marrom/Ferrugem
+                    .frame(maxWidth: .infinity)
+                    .background(Color("PrimaryAppColor"))
                     .foregroundColor(.white)
-                    .font(.custom("Heebo-Bold", size: 16.0))
-                    .cornerRadius(16)
-                    Spacer().frame(width: 8)
+                    .font(AppFont.heeboBoldBody())
+                    .cornerRadius(Spacing.small)
+                    Spacer().frame(width: Spacing.extraSmall)
                     Button("Mais Informações") {
                         // Ação do botão Mais Informações
                     }
-                    .padding(.vertical, 16)
+                    .padding(.vertical, Spacing.small)
                     .frame(maxWidth: .infinity)
                     .background(Color("DefaultGrayColor"))
                     .foregroundColor(.white)
-                    .font(.custom("Heebo-Bold", size: 16.0))
-                    .cornerRadius(16)
+                    .font(AppFont.heeboBoldBody())
+                    .cornerRadius(Spacing.small)
                 }
-                //Empurra o conteúdo para cima
-                Spacer()
+                .padding(.horizontal, Spacing.regular)
             }
-            
-            
-            
             // 5. O Botão de Fechar ('X')
             Button {
                 dismiss() // Chama a ação para fechar a sheet
             } label: {
-                Image(systemName: "xmark") // Ícone 'X' do SF Symbols
-                    .font(.system(size: 24, weight: .bold))
+                Image(systemName: "xmark")
+                    .font(.system(size: Spacing.regular, weight: .bold))
                     .foregroundColor(Color("GreenTextColor"))
-                    .padding(8)
+                    .padding(.vertical, Spacing.extraSmall)
+                    .padding(.horizontal, Spacing.regular)
             }
         }
-        .padding(.horizontal, 24)
-        .padding(.vertical, 16)
+        .padding(.vertical, Spacing.small)
         // controla o tamanho da bottomsheet
-        .presentationDetents([.fraction(0.7)])
-        .presentationCornerRadius(48)
+        .presentationDetents([.fraction(0.80)])
+        .presentationCornerRadius(Spacing.extraLarge)
     }
-}
-
-
-#Preview {
-    ContentView()
 }
