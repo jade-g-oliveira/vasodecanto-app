@@ -14,24 +14,27 @@ struct ContentView: View {
                 // 1. O destino: a View para onde você quer ir
                 LoginView()
             } label: {
-                // 2. O rótulo: o que o usuário vai ver (seu botão!)
+                // 2. O rótulo: o que o usuário vai ver
                 Text("Login")
             }
             .buttonStyle(.borderedProminent)
             Button("Abrir Bottom Sheet") {
                 showingBottomSheet = true
             }
-            // 2. O modificador .sheet()
             .sheet(isPresented: $showingBottomSheet) {
                 // conteúdo da bottomsheet
                 PlantDetailBottomSheet()
             }
             NavigationLink {
-                // 1. O destino: a View para onde você quer ir
                 ProfileView()
             } label: {
-                // 2. O rótulo
                 Text("Perfil")
+            }
+            .buttonStyle(.borderedProminent)
+            NavigationLink {
+                OnboardingView()
+            } label: {
+                Text("Onboarding")
             }
             .buttonStyle(.borderedProminent)
         }

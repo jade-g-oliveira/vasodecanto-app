@@ -23,13 +23,17 @@ extension Font {
         static var heeboBoldBody: Font {
             .custom("Heebo-Bold", size: FontSize.body)
         }
+        /// - Fonte: **14.0**
+        static var heeboMediumCaption: Font {
+            .custom("Heebo-Medium", size: FontSize.caption)
+        }
         /// - Fonte: **16.0**
         static var heeboSemiBoldBody: Font {
             .custom("Heebo-SemiBold", size: FontSize.body)
         }
-        /// - Fonte: **14.0**
-        static var heeboMediumCaption: Font {
-            .custom("Heebo-Medium", size: FontSize.caption)
+        /// - Fonte: **56.0**
+        static var heeboBoldGiant: Font {
+            .custom("Heebo-Bold", size: FontSize.giant)
         }
         // MARK: – Estilos Customizados Staatliches
         static var staatlichesRegularTitle: Font {
