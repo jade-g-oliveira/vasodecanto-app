@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileView: View {
-    // Dados simulados do usuário (substituir por dados reais quando tiver a fonte)
+    // Dados simulados do usuário
     let userName: String = "Nome do Usuário"
     let userEmail: String = "teste.email@gmail.com"
 
@@ -16,23 +16,23 @@ struct ProfileView: View {
 
     var body: some View {
         VStack {
-            Spacer(minLength: 120)
+            Spacer(minLength: Spacing.giant)
 
             // Seção do perfil (avatar, nome e e-mail)
-            VStack(spacing: 16) {
+            VStack(spacing: Spacing.small) {
                 Circle()
                     .fill(Color(.systemGray4))
                     .frame(width: 170, height: 170)
 
                 Text(userName)
-                    .font(.custom("Heebo-Bold", size: 16))
+                    .font(.heeboBoldBody)
                     .foregroundStyle(Color("GreenTextColor"))
 
                 Text(userEmail)
-                    .font(.custom("Heebo-Regular", size: 16))
+                    .font(.heeboBody)
                     .foregroundStyle(Color("GreenTextColor"))
             }
-            .padding(.vertical, 24)
+            .padding(.vertical, Spacing.regular)
 
             Spacer()
 
@@ -41,10 +41,10 @@ struct ProfileView: View {
                 showingLogoutAlert = true
             } label: {
                 Text("Fazer logoff")
-                    .font(.custom("Heebo-SemiBold", size: 16))
+                    .font(.heeboSemiBoldBody)
                     .foregroundStyle(Color(.systemRed))
                     .frame(maxWidth: .infinity)
-                    .frame(height: 56)
+                    .frame(height: Spacing.xxLarge)
                     .background(.white)
                     .clipShape(Capsule())
                     .overlay(
@@ -52,26 +52,20 @@ struct ProfileView: View {
                             .stroke(Color("GreenTextColor"), lineWidth: 2)
                     )
             }
-            .padding(.horizontal, 24)
+            .padding(.horizontal, Spacing.regular)
             .alert("Deseja sair da sua conta?", isPresented: $showingLogoutAlert) {
                 Button("Cancelar", role: .cancel) { }
                 Button("Sair", role: .destructive) {
-                    // TODO: implementar logoff real (ex.: limpar sessão, navegar, etc.)
+                    // MARK: implementar logoff real (ex.: limpar sessão, navegar, etc.)
                     print("Usuário saiu")
                 }
             } message: {
                 Text("Você pode entrar novamente quando quiser.")
             }
 
-            Spacer(minLength: 120)
+            Spacer(minLength: Spacing.giant)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("GrayBackgroundColor")) // Fundo claro
-    }
-}
-
-#Preview {
-    NavigationStack {
-        ProfileView()
     }
 }
