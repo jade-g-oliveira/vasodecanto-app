@@ -28,7 +28,7 @@ struct PlantDetailBottomSheet: View {
                     .frame(maxWidth: .infinity)
                     .background(Color("PrimaryAppColor"))
                     .foregroundColor(.white)
-                    .font(AppFont.heeboBoldBody())
+                    .font(.heeboBoldBody)
                     .cornerRadius(Spacing.small)
                     Spacer().frame(width: Spacing.extraSmall)
                     Button("Mais Informações") {
@@ -38,10 +38,9 @@ struct PlantDetailBottomSheet: View {
                     .frame(maxWidth: .infinity)
                     .background(Color("DefaultGrayColor"))
                     .foregroundColor(.white)
-                    .font(AppFont.heeboBoldBody())
+                    .font(.heeboBoldBody)
                     .cornerRadius(Spacing.small)
-                }
-                .padding(.horizontal, Spacing.regular)
+                }.padding(.horizontal, Spacing.regular)
             }
             // 5. O Botão de Fechar ('X')
             Button {
@@ -50,13 +49,15 @@ struct PlantDetailBottomSheet: View {
                 Image(systemName: "xmark")
                     .font(.system(size: Spacing.regular, weight: .bold))
                     .foregroundColor(Color("GreenTextColor"))
-                    .padding(.vertical, Spacing.extraSmall)
                     .padding(.horizontal, Spacing.regular)
             }
-        }
-        .padding(.vertical, Spacing.small)
+        }.padding(.vertical, Spacing.small)
         // controla o tamanho da bottomsheet
-        .presentationDetents([.fraction(0.80)])
+        .presentationDetents([.fraction(0.75)])
         .presentationCornerRadius(Spacing.extraLarge)
     }
+}
+
+#Preview {
+    ContentView()
 }

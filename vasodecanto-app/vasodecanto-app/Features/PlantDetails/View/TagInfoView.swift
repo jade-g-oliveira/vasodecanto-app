@@ -13,8 +13,8 @@ struct TagView: View {
     var body: some View {
         HStack(spacing: Spacing.micro) {
             Image(systemName: iconName)
-                .font(AppFont.heeboBoldCaption())
-            Text(text).font(AppFont.heeboCaption())
+                .font(.heeboBoldCaption)
+            Text(text).font(.heeboCaption)
         }
         .frame(height: Spacing.regular)
         .padding(.horizontal, Spacing.small)

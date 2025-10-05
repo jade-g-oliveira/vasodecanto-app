@@ -25,11 +25,11 @@ struct ProfileView: View {
                     .frame(width: 170, height: 170)
 
                 Text(userName)
-                    .font(AppFont.heeboBoldBody())
+                    .font(.heeboBoldBody)
                     .foregroundStyle(Color("GreenTextColor"))
 
                 Text(userEmail)
-                    .font(AppFont.heeboBody())
+                    .font(.heeboBody)
                     .foregroundStyle(Color("GreenTextColor"))
             }
             .padding(.vertical, Spacing.regular)
@@ -41,7 +41,7 @@ struct ProfileView: View {
                 showingLogoutAlert = true
             } label: {
                 Text("Fazer logoff")
-                    .font(AppFont.heeboSemiBoldBody())
+                    .font(.heeboSemiBoldBody)
                     .foregroundStyle(Color(.systemRed))
                     .frame(maxWidth: .infinity)
                     .frame(height: Spacing.xxLarge)
