@@ -1,0 +1,39 @@
+name: Branch Name Validator
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  validate_branch_name:
+    name: Verify Branch Name Prefix
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Verificar se o nome da branch segue o padrão
+        shell: bash
+        run: |
+          # 1. Get the branch's name
+          BRANCH_NAME="${{ github.head_ref }}"
+
+          # 2. Define the regex to validate the name
+          #    A regex: ^(enhancement|fix|hotfix|feature|release)\/.*
+          #    - ^: Começa com
+          #    - (...): Um dos grupos
+          #    - \/: Seguido por uma barra (escapada)
+          #    - .*: Seguido por qualquer caractere
+          ALLOWED_PREFIXES_REGEX="^(enhancement|fix|hotfix|feature|release)\/.*"
+
+          echo "Verified branch name: $BRANCH_NAME"
+          echo "Allowed branch name pattern: enhancement/, fix/, hotfix/, feature/, release/"
+
+          # 3. Use the command 'grep -E' to verify if the branch matches with the pattern
+          # Exit code 0 (sucess) means that is okay.
+          if [[ "$BRANCH_NAME" =~ $ALLOWED_PREFIXES_REGEX ]]; then
+            echo "✅ Success! The branch name '$BRANCH_NAME' is correct and matches with the allowed prefix."
+          else
+            echo "❌ FAIL! The branch name '$BRANCH_NAME' is not allowed"
+            echo "The allowed prefix are: enhancement, fix, hotfix, feature, release."
+            echo "The required formatted is: prefix/description-of-you-done"
+            exit 1 # Exit code 1 make the job fail
+          fi
