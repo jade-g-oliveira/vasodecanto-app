@@ -33,7 +33,7 @@ struct PlantDetailInfoHeader: View {
                 .font(.heeboMediumCaption)
                 .foregroundColor(Color.black)
         }
-        .padding(.horizontal, Spacing.xxLarge)
+        .padding(.horizontal, Spacing.xxxLarge)
     }
 }
 

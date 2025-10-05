@@ -41,8 +41,7 @@ struct PlantDetailBottomSheet: View {
                     .font(.heeboBoldBody)
                     .cornerRadius(Spacing.small)
                 }.padding(.horizontal, Spacing.regular)
-            }
-            // 5. O Botão de Fechar ('X')
+            }.padding(.vertical, Spacing.small)
             Button {
                 dismiss() // Chama a ação para fechar a sheet
             } label: {
@@ -51,13 +50,9 @@ struct PlantDetailBottomSheet: View {
                     .foregroundColor(Color("GreenTextColor"))
                     .padding(.horizontal, Spacing.regular)
             }
-        }.padding(.vertical, Spacing.small)
+        }
         // controla o tamanho da bottomsheet
-        .presentationDetents([.fraction(0.75)])
+        .presentationDetents([.fraction(0.80)])
         .presentationCornerRadius(Spacing.extraLarge)
     }
-}
-
-#Preview {
-    ContentView()
 }
