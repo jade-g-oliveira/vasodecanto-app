@@ -25,6 +25,8 @@ struct Spacing {
     static let xxLarge: CGFloat = 56.0
     /// - Valor: **80.0**
     static let xxxLarge: CGFloat = 80.0
+    /// - Valor: **112.0**
+    static let big: CGFloat = 112.0
     /// - Valor: **120.0**
     static let giant: CGFloat = 120.0
 }
