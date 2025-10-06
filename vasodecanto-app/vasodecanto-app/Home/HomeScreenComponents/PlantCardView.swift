@@ -20,7 +20,8 @@ struct CardImage: View {
 }
 
 struct PlantCardView: View {
-    let item: Int
+    let plantInfo: PlantInfo
+    let index: Int
 
     var body: some View {
         ZStack {
@@ -29,7 +30,6 @@ struct PlantCardView: View {
 
             VStack {
                 CardImage()
-                Text("\(item)")
                 Text("Calatéia")
                     .font(.custom(Constants.Fonts.regularStaatliches, size: Constants.Sizes.LfontSize))
                     .foregroundColor(Color(Constants.Colors.textGreenColor))
@@ -43,7 +43,7 @@ struct PlantCardView: View {
                     .foregroundColor(Color.black)
             }
         }
-        .frame(width: 185, height: 285)
+        .frame(width: 185, height: index % 2 == 0 ? 230 : 280)
         .cornerRadius(15)
         .shadow(color: Color.black.opacity(0.15), radius: 6, x: 0, y: 3)
     }
@@ -51,7 +51,7 @@ struct PlantCardView: View {
 
 struct PlantCardView_Previews: PreviewProvider {
     static var previews: some View {
-        PlantCardView(item: 1)
+        PlantCardView(plantInfo: .init(name: "Calatéia"), index: 1)
             .padding(20)
             .background(Color(.systemGray5))
     }
