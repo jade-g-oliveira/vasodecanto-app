@@ -1,40 +1,42 @@
-//
-//  PlantDetailInfo.swift
+//  PlantDetailInfoTexts.swift
 //  vasodecanto-app
 //
-//  Created by Jade Oliveira on 28/09/25.
-//
+//  Created by Jade Oliveira on 29/09/25.
+
 import SwiftUI
 
-struct PlantDetailInfoView: View {
+struct PlantDetailInfoHeader: View {
     var body: some View {
-        // 2. A Imagem/Ilustração
         VStack {
             Image("PlantIlustration1")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 200, height: 200)
             Spacer()
-                .frame(height: 8)
+                .frame(height: Spacing.extraSmall)
             Text("Calatéia")
-                .font(.custom("Staatliches-Regular", size: 32.0))
+                .font(.staatlichesRegularTitle)
                 .foregroundColor(Color("GreenTextColor"))
             Text("calathea reseopicta")
-                .font(.custom("Alegreya-Italic", size: 16.0))
+                .font(.alegreyaItalicBody)
                 .foregroundColor(Color("GreenTextColor"))
             Spacer()
-                .frame(height: 8)
-            Text("Texto demonstrativo Texto demonstrativo Texto demonstrativo Texto demonstrativo Texto demonstrativo Texto ")
-                .font(.custom("Heebo-Regular", size: 14.0))
+                .frame(height: Spacing.extraSmall)
+            Text("Texto demonstrativo Texto demonstrativo Texto demonstrativo Texto")
+                .font(.heeboCaption)
                 .foregroundColor(Color("GreenTextColor"))
                 .multilineTextAlignment(.center)
                 .lineLimit(3)
             Spacer()
-                .frame(height: 8)
+                .frame(height: Spacing.extraSmall)
             Text("Benefícios:")
-                .font(.custom("Heebo-Medium", size: 14.0))
+                .font(.heeboMediumCaption)
                 .foregroundColor(Color.black)
         }
-        .padding(.horizontal, 24)
+        .padding(.horizontal, Spacing.xxxLarge)
     }
+}
+
+#Preview {
+    ContentView()
 }
