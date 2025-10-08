@@ -6,5 +6,8 @@
 //
 
 struct PlantInfo {
-    let name: String
+    let imageName: String
+    let title: String
+    let subtitle: String
+    let plantBadges: [PlantBadge]
 }
