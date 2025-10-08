@@ -31,7 +31,7 @@ struct ContentView: View {
 
             NavigationLink {
                 // 1. O destino: a View para onde você quer ir
-                HomeScreen()
+                TabViewContainer(selectedTab: .house)
             } label: {
                 // 2. O rótulo: o que o usuário vai ver (seu botão!)
                 Text("Ir para home") // Ele automaticamente parece um botão de navegação
