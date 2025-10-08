@@ -12,23 +12,46 @@ enum TabKey: Hashable {
     case house, search, profile
 }
 
+struct TabViewConstants {
+    static let listIcon = "list.bullet"
+    static let searchIcon = "magnifyingglass"
+    static let profileIcon = "person.crop.circle"
+
+    // MARK: Wordings
+    static let listWording = "Lista"
+    static let searchWording = "Buscar"
+    static let profileWording = "Perfil"
+}
+
 struct TabViewContainer: View {
     @State var selectedTab: TabKey
 
     var body: some View {
         TabView(selection: $selectedTab) {
-            Tab("Home", systemImage: "house", value: .house) {
+            Tab(
+                TabViewConstants.listWording,
+                systemImage: TabViewConstants.listIcon,
+                value: .house
+            ) {
                 HomeScreen()
             }
 
-            Tab("Buscar", systemImage: "magnifyingglass", value: .search) {
-                Image(systemName: "magnifyingglass")
+            Tab(
+                TabViewConstants.searchWording,
+                systemImage: TabViewConstants.searchIcon,
+                value: .search
+            ) {
+                Image(systemName: TabViewConstants.searchIcon)
                     .imageScale(.large)
                     .foregroundStyle(.blue)
                 Text("Tela em construção")
             }
 
-            Tab("Perfil", systemImage: "person.crop.circle", value: .profile) {
+            Tab(
+                TabViewConstants.profileWording,
+                systemImage: TabViewConstants.profileIcon,
+                value: .profile
+            ) {
                 ProfileView()
             }
         }

@@ -7,16 +7,22 @@
 
 import SwiftUI
 
+struct PlantSearchBarConstants {
+    static let searchIcon = "magnifyingglass"
+    static let settingIcon = "gear"
+    static let searchWording = "Qual planta você está procurando?"
+}
+
 struct PlantSearchBarView: View {
     @State var searchText = ""
 
     var body: some View {
         HStack {
             HStack {
-                Image(systemName: "magnifyingglass")
+                Image(systemName: PlantSearchBarConstants.searchIcon)
                     .foregroundStyle(.greenText)
 
-                TextField("Qual planta você está procurando?", text: $searchText)
+                TextField(PlantSearchBarConstants.searchWording, text: $searchText)
                     .foregroundColor(.greenText)
                     .font(.heeboBody)
                     .background(Color.white)
@@ -30,17 +36,17 @@ struct PlantSearchBarView: View {
             Button {
                 print("tapped button")
             } label: {
-                Image(systemName: "gear")
+                Image(systemName: PlantSearchBarConstants.settingIcon)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .foregroundStyle(.white)
             }
-            .background(Color("PrimaryAppColor"))
+            .background(Color.primaryApp)
             .frame(width: 32, height: 32)
 
         }
         .padding()
-        .background(Color("PrimaryAppColor"))
+        .background(Color.primaryApp)
     }
 }
 

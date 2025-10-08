@@ -8,6 +8,17 @@
 import SwiftUI
 import WaterfallGrid
 
+struct HomeScreenConstants {
+    // MARK: Icons
+    static let sunIcon = "sun.max"
+    static let petIcon = "cat"
+    static let cloudIcon = "cloud"
+    static let humidityIcon = "humidity"
+
+    // MARK: Wordings
+    static let suggestionWording = "Sugestões"
+    }
+
 struct HomeScreen: View {
     let repeatedPlants: [PlantInfo] = Array(
         repeating: PlantInfo(
@@ -27,22 +38,22 @@ struct HomeScreen: View {
 
     let badgePlants: [PlantBadge] = [
         .init(
-            iconName: "sun.max",
+            iconName: HomeScreenConstants.sunIcon,
             backgroundColor: .blue,
             iconColor: .black
         ),
         .init(
-            iconName: "cat",
+            iconName: HomeScreenConstants.petIcon,
             backgroundColor: .purple,
             iconColor: .white
         ),
         .init(
-            iconName: "cloud",
+            iconName: HomeScreenConstants.cloudIcon,
             backgroundColor: .blue,
             iconColor: .white
         ),
         .init(
-            iconName: "humidity",
+            iconName: HomeScreenConstants.humidityIcon,
             backgroundColor: .orange,
             iconColor: .black
         )
@@ -54,7 +65,7 @@ struct HomeScreen: View {
             PlantSearchBarView()
 
             ScrollView {
-                Text("Sugestões")
+                Text(HomeScreenConstants.suggestionWording)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .multilineTextAlignment(.leading)
                     .padding(.top, 8)
