@@ -9,7 +9,22 @@ import SwiftUI
 import WaterfallGrid
 
 struct HomeScreen: View {
-    let repeatedPlants: [PlantInfo] = Array(repeating: PlantInfo(name: "Nome"), count: 15)
+    let repeatedPlants: [PlantInfo] = Array(
+        repeating: PlantInfo(
+            imageName: Constants.Assets.calateiaPlant,
+            title: "Calatéia",
+            subtitle: "calathea reseopicta",
+            plantBadges: [
+                .init(
+                    iconName: "cloud",
+                    backgroundColor: .blue,
+                    iconColor: .white
+                )
+            ]
+        ),
+        count: 15
+    )
+
     let badgePlants: [PlantBadge] = [
         .init(
             iconName: "sun.max",
@@ -34,29 +49,32 @@ struct HomeScreen: View {
     ]
 
     var body: some View {
-        // MARK: Search Bar
-        PlantSearchBarView()
+        VStack {
+            // MARK: Search Bar
+            PlantSearchBarView()
 
-        // MARK: Plants Grids
-        ScrollView {
-            WaterfallGrid(0..<repeatedPlants.count, id: \.self) { index in
-                PlantCardView(
-                    imageName: Constants.Assets.calateiaPlant,
-                    title: "Calatéia",
-                    subtitle: "calathea reseopicta",
-                    plantBadges: badgePlants,
-                    index: index
+            // MARK: Plants Grids
+            ScrollView {
+                WaterfallGrid(0..<repeatedPlants.count, id: \.self) { index in
+                    let plant = repeatedPlants[index]
+                    return PlantCardView(
+                        imageName: plant.imageName,
+                        title: plant.title,
+                        subtitle: plant.subtitle,
+                        plantBadges: badgePlants,
+                        index: index
+                    )
+                }
+                .gridStyle(
+                    columnsInPortrait: 2,
+                    columnsInLandscape: 4,
+                    spacing: CGFloat(16),
+                    animation: .default
                 )
+                .padding()
             }
-            .gridStyle(
-                columnsInPortrait: 2,
-                columnsInLandscape: 4,
-                spacing: CGFloat(16),
-                animation: .default
-            )
-            .padding()
+            .background(Color(hex: 0xE9E7E2))
         }
-        .background(Color(hex: 0xE9E7E2))
     }
 }
 

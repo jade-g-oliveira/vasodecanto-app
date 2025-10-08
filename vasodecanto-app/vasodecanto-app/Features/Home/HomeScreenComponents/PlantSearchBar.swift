@@ -18,12 +18,12 @@ struct PlantSearchBarView: View {
 
                 TextField("Qual planta você está procurando?", text: $searchText)
                     .foregroundColor(.greenText)
-                    .font(.heeboMediumCaption)
+                    .font(.heeboBody)
                     .background(Color.white)
                     .cornerRadius(8)
             }
-            .padding(.horizontal, 10)
-            .frame(height: 40)
+            .padding(.horizontal, 8)
+            .frame(height: 48)
             .background(Color.white)
             .cornerRadius(8)
 
@@ -36,10 +36,15 @@ struct PlantSearchBarView: View {
                     .foregroundStyle(.white)
             }
             .background(Color("PrimaryAppColor"))
-            .frame(width: 40, height: 32)
+            .frame(width: 32, height: 32)
 
         }
         .padding()
         .background(Color("PrimaryAppColor"))
     }
+}
+
+#Preview {
+    PlantSearchBarView(searchText: "")
+        .padding()
 }
