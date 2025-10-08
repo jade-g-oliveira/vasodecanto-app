@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		465C38B62E947979001683CE /* WaterfallGrid in Frameworks */ = {isa = PBXBuildFile; productRef = 465C38B52E947979001683CE /* WaterfallGrid */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		1AE891612E873DAC00F4BB05 /* vasodecanto-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "vasodecanto-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				465C38B62E947979001683CE /* WaterfallGrid in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +84,7 @@
 			);
 			name = "vasodecanto-app";
 			packageProductDependencies = (
+				465C38B52E947979001683CE /* WaterfallGrid */,
 			);
 			productName = "vasodecanto-app";
 			productReference = 1AE891612E873DAC00F4BB05 /* vasodecanto-app.app */;
@@ -108,6 +114,9 @@
 			);
 			mainGroup = 1AE891582E873DAC00F4BB05;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				465C38B42E947979001683CE /* XCRemoteSwiftPackageReference "WaterfallGrid" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1AE891622E873DAC00F4BB05 /* Products */;
 			projectDirPath = "";
@@ -363,6 +372,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		465C38B42E947979001683CE /* XCRemoteSwiftPackageReference "WaterfallGrid" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/paololeonardi/WaterfallGrid";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		465C38B52E947979001683CE /* WaterfallGrid */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 465C38B42E947979001683CE /* XCRemoteSwiftPackageReference "WaterfallGrid" */;
+			productName = WaterfallGrid;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1AE891592E873DAC00F4BB05 /* Project object */;
 }

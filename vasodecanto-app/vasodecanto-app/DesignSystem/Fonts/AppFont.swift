@@ -31,6 +31,10 @@ extension Font {
         static var heeboSemiBoldBody: Font {
             .custom("Heebo-SemiBold", size: FontSize.body)
         }
+        /// - Fonte: **24.0**
+        static var heeboBoldLarge: Font {
+            .custom("Heebo-Bold", size: FontSize.large)
+        }
         /// - Fonte: **56.0**
         static var heeboBoldGiant: Font {
             .custom("Heebo-Bold", size: FontSize.giant)
