@@ -30,11 +30,11 @@ struct PlantCardView: View {
             VStack {
                 Text(title)
                     .font(.staatlichesRegularTitle)
-                    .foregroundColor(.primary)
+                    .foregroundColor(.greenText)
 
                 Text(subtitle)
                     .font(.alegreyaItalicBody)
-                    .foregroundColor(.secondary)
+                    .foregroundColor(.greenText)
 
                 Text("Benefícios:")
                     .font(.heeboCaption)

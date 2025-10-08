@@ -53,8 +53,16 @@ struct HomeScreen: View {
             // MARK: Search Bar
             PlantSearchBarView()
 
-            // MARK: Plants Grids
             ScrollView {
+                Text("Sugestões")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .multilineTextAlignment(.leading)
+                    .padding(.top, 8)
+                    .padding(.leading, 16)
+                    .font(.heeboBoldLarge)
+                    .foregroundStyle(.greenText)
+
+                // MARK: Plants Grids
                 WaterfallGrid(0..<repeatedPlants.count, id: \.self) { index in
                     let plant = repeatedPlants[index]
                     return PlantCardView(
@@ -71,10 +79,10 @@ struct HomeScreen: View {
                     spacing: CGFloat(16),
                     animation: .default
                 )
-                .padding()
+                .padding(.horizontal)
             }
-            .background(Color(hex: 0xE9E7E2))
         }
+        .background(Color(hex: 0xE9E7E2))
     }
 }
 
