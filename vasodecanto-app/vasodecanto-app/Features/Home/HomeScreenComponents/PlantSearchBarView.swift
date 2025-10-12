@@ -20,9 +20,13 @@ struct PlantSearchBarView: View {
         HStack {
             HStack {
                 Image(systemName: PlantSearchBarConstants.searchIcon)
-                    .foregroundStyle(.greenText)
+                    .foregroundStyle(.greenPlaceHolder)
 
-                TextField(PlantSearchBarConstants.searchWording, text: $searchText)
+                TextField(
+                    "",
+                    text: $searchText,
+                    prompt: Text(PlantSearchBarConstants.searchWording).foregroundColor(.greenPlaceHolder)
+                )
                     .foregroundColor(.greenText)
                     .font(.heeboBody)
                     .background(Color.white)
