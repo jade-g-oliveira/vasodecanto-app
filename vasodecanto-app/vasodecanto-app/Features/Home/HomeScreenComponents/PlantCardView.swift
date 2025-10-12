@@ -25,7 +25,7 @@ struct PlantCardView: View {
                 .frame(height: 100)
                 .frame(width: cardWidth)
                 .clipped()
-                .padding(.top, 8)
+                .padding(.top, Spacing.extraSmall)
 
             VStack {
                 Text(title)
@@ -40,7 +40,7 @@ struct PlantCardView: View {
                     .font(.heeboCaption)
                     .foregroundColor(Color.black)
 
-                LazyVGrid(columns: columns, spacing: 4) {
+                LazyVGrid(columns: columns, spacing: Spacing.micro) {
                     ForEach(plantBadges) { plantBadge in
                         PlantBadgeView(plantBadgeInfo: plantBadge)
                     }
@@ -62,7 +62,7 @@ struct PlantCardView: View {
 
 #Preview {
     PlantCardView(
-        imageName: Constants.Assets.calateiaPlant,
+        imageName: "PlantIlustration1",
         title: "Calatéia",
         subtitle: "calathea reseopicta",
         plantBadges: [

@@ -14,6 +14,7 @@ struct HomeScreenConstants {
     static let petIcon = "cat"
     static let cloudIcon = "cloud"
     static let humidityIcon = "humidity"
+    static let plantIlustration = "PlantIlustration1"
 
     // MARK: Wordings
     static let suggestionWording = "Sugestões"
@@ -22,12 +23,12 @@ struct HomeScreenConstants {
 struct HomeScreen: View {
     let repeatedPlants: [PlantInfo] = Array(
         repeating: PlantInfo(
-            imageName: Constants.Assets.calateiaPlant,
+            imageName: HomeScreenConstants.plantIlustration,
             title: "Calatéia",
             subtitle: "calathea reseopicta",
             plantBadges: [
                 .init(
-                    iconName: "cloud",
+                    iconName: HomeScreenConstants.cloudIcon,
                     backgroundColor: .blue,
                     iconColor: .white
                 )
@@ -68,8 +69,8 @@ struct HomeScreen: View {
                 Text(HomeScreenConstants.suggestionWording)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .multilineTextAlignment(.leading)
-                    .padding(.top, 8)
-                    .padding(.leading, 16)
+                    .padding(.top, Spacing.extraSmall)
+                    .padding(.leading, Spacing.small)
                     .font(.heeboBoldLarge)
                     .foregroundStyle(.greenText)
 
@@ -87,13 +88,13 @@ struct HomeScreen: View {
                 .gridStyle(
                     columnsInPortrait: 2,
                     columnsInLandscape: 4,
-                    spacing: CGFloat(16),
+                    spacing: CGFloat(Spacing.small),
                     animation: .default
                 )
                 .padding(.horizontal)
             }
         }
-        .background(Color(hex: 0xE9E7E2))
+        .background(Color(.grayBackground))
     }
 }
 
