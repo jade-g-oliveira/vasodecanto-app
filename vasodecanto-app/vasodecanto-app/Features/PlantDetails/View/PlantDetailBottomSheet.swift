@@ -7,6 +7,7 @@ import SwiftUI
 
 struct PlantDetailBottomSheet: View {
     @Environment(\.dismiss) var dismiss
+    @State private var showingBottomSheet = false
     var body: some View {
         ZStack(alignment: .topTrailing) {
             VStack {
@@ -21,7 +22,11 @@ struct PlantDetailBottomSheet: View {
                 HStack {
                     // Botão 1: Login (Fundo Marrom)
                     Button("Login") {
-                        // Ação do botão Login
+                        showingBottomSheet = true
+                    }
+                    .sheet(isPresented: $showingBottomSheet) {
+                        // conteúdo da bottomsheet
+                        AddToListBottomSheet()
                     }
                     .padding(.vertical, Spacing.small)
                     // Faz o botão se expandir horizontalmente
