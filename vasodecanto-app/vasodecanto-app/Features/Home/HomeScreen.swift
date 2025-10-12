@@ -10,9 +10,9 @@ import WaterfallGrid
 
 struct HomeScreenConstants {
     // MARK: Icons
-    static let sunIcon = "sun.max"
-    static let petIcon = "cat"
-    static let cloudIcon = "cloud"
+    static let sunIcon = "thermometer.sun.fill"
+    static let pillIcon = "pill"
+    static let windIcon = "wind"
     static let humidityIcon = "humidity"
     static let plantIlustration = "PlantIlustration1"
 
@@ -28,7 +28,7 @@ struct HomeScreen: View {
             subtitle: "calathea reseopicta",
             plantBadges: [
                 .init(
-                    iconName: HomeScreenConstants.cloudIcon,
+                    iconName: HomeScreenConstants.windIcon,
                     backgroundColor: .blue,
                     iconColor: .white
                 )
@@ -40,23 +40,23 @@ struct HomeScreen: View {
     let badgePlants: [PlantBadge] = [
         .init(
             iconName: HomeScreenConstants.sunIcon,
-            backgroundColor: .blue,
+            backgroundColor: .yellowTag,
             iconColor: .black
         ),
         .init(
-            iconName: HomeScreenConstants.petIcon,
-            backgroundColor: .purple,
-            iconColor: .white
+            iconName: HomeScreenConstants.pillIcon,
+            backgroundColor: .lightGreenTag,
+            iconColor: .black
         ),
         .init(
-            iconName: HomeScreenConstants.cloudIcon,
-            backgroundColor: .blue,
+            iconName: HomeScreenConstants.windIcon,
+            backgroundColor: .lightBlue,
             iconColor: .white
         ),
         .init(
             iconName: HomeScreenConstants.humidityIcon,
-            backgroundColor: .orange,
-            iconColor: .black
+            backgroundColor: .lightBlue,
+            iconColor: .white
         )
     ]
 
