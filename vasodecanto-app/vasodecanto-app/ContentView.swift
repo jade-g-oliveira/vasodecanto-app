@@ -25,6 +25,14 @@ struct ContentView: View {
                 // conteúdo da bottomsheet
                 PlantDetailBottomSheet()
             }
+
+            NavigationLink {
+                TabViewContainer(selectedTab: .house)
+            } label: {
+                Text("Lista de plantas")
+            }
+            .buttonStyle(.borderedProminent)
+
             NavigationLink {
                 ProfileView()
             } label: {
