@@ -36,7 +36,7 @@ struct PlantDetailSectionItemView: View {
                         .foregroundColor(plantDetails.textColor)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .frame(height: 32)
+                .frame(height: Spacing.medium)
                 .multilineTextAlignment(.leading)
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
