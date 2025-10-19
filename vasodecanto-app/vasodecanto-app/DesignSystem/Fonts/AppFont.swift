@@ -28,6 +28,10 @@ extension Font {
             .custom("Heebo-Medium", size: FontSize.caption)
         }
         /// - Fonte: **16.0**
+        static var heeboMediumBody: Font {
+            .custom("Heebo-Medium", size: FontSize.body)
+        }
+        /// - Fonte: **16.0**
         static var heeboSemiBoldBody: Font {
             .custom("Heebo-SemiBold", size: FontSize.body)
         }
@@ -40,8 +44,17 @@ extension Font {
             .custom("Heebo-Bold", size: FontSize.giant)
         }
         // MARK: – Estilos Customizados Staatliches
+        static var staatlichesRegularBody: Font {
+            .custom("Staatliches-Regular", size: FontSize.body)
+        }
+        static var staatlichesRegularLarge: Font {
+            .custom("Staatliches-Regular", size: FontSize.large)
+        }
         static var staatlichesRegularTitle: Font {
             .custom("Staatliches-Regular", size: FontSize.title)
+        }
+        static var staatlichesRegularXTitle: Font {
+            .custom("Staatliches-Regular", size: FontSize.xTitle)
         }
         // MARK: – Estilos Customizados Alegreya
         static var alegreyaItalicBody: Font {
