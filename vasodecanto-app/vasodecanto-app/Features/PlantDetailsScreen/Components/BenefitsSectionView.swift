@@ -20,7 +20,7 @@ struct BenefitsSectionView: View {
                                 if let image = itemsDict["image"], let descp = itemsDict["description"] {
                                     Image(systemName: image)
                                         .foregroundColor(.darkBlue)
-                                    
+
                                     Text("\(key): ")
                                         .font(.heeboBoldCaption)
                                         .foregroundColor(.darkBlue)
