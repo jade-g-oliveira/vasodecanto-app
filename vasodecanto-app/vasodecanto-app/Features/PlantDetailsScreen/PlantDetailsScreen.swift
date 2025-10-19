@@ -21,7 +21,7 @@ struct PlantDetailsScreen: View {
                     VStack(alignment: .leading) {
                         Text("Como cuidar?")
                             .font(.heeboMediumBody)
-                            .frame(height: 48)
+                            .frame(height: Spacing.extraLarge)
                             .foregroundColor(.greenText)
                             .padding(.horizontal)
                             .padding(.vertical, Spacing.extraSmall)
@@ -30,7 +30,7 @@ struct PlantDetailsScreen: View {
                     }
                     .offset(y: 16)
                 }
-                .padding(.bottom, 40)
+                .padding(.bottom, Spacing.large)
 
                 // MARK: Title e Subtitle
                 VStack {

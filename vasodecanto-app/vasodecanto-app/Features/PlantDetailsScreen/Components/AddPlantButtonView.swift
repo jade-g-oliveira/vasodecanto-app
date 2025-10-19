@@ -15,13 +15,13 @@ struct AddPlantButtonView: View {
             HStack {
                 Image(systemName: "plus.circle")
                     .resizable()
-                    .frame(width: 24, height: 24)
+                    .frame(width: Spacing.regular, height: Spacing.regular)
                 Text("Minha lista")
                     .font(.heeboMediumCaption)
             }
             .foregroundColor(.white)
             .frame(maxWidth: .infinity)
-            .frame(height: 40)
+            .frame(height: Spacing.large)
             .background(Color.primaryApp)
             .cornerRadius(8)
         }
