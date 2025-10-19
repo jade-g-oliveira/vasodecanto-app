@@ -16,7 +16,7 @@ struct LevelIndicatorView: View {
     var body: some View {
         HStack(spacing: 0) {
             ForEach(0..<labels.count, id: \.self) { index in
-                VStack(spacing: 8) {
+                VStack(spacing: Spacing.extraSmall) {
                     // Retângulo indicador
                     Rectangle()
                         .fill(index + 1 == level ? activeColor : inactiveColor)
@@ -33,6 +33,6 @@ struct LevelIndicatorView: View {
                 }
             }
         }
-        .padding(.top, 4)
+        .padding(.top, Spacing.micro)
     }
 }

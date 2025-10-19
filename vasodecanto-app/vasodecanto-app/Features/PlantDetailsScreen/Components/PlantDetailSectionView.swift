@@ -22,7 +22,7 @@ struct PlantDetailSectionView: View {
                 }
             },
             label: {
-                VStack(spacing: 8) {
+                VStack(spacing: Spacing.extraSmall) {
                     Image(systemName: sectionIcon)
                         .foregroundColor(sectionColor)
 
@@ -31,7 +31,7 @@ struct PlantDetailSectionView: View {
                         .foregroundColor(sectionColor)
                 }
                 .frame(maxWidth: .infinity)
-                .padding(.bottom, 8)
+                .padding(.bottom, Spacing.extraSmall)
                 .multilineTextAlignment(.center)
             }
         )

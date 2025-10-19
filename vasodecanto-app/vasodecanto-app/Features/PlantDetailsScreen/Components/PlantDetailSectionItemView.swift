@@ -11,7 +11,7 @@ struct PlantDetailSectionItemView: View {
     let plantDetails: PlantDetailSectionItemModel
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .leading, spacing: Spacing.small) {
             Text(plantDetails.title)
                 .font(.heeboCaption)
                 .foregroundColor(plantDetails.textColor)
@@ -28,7 +28,7 @@ struct PlantDetailSectionItemView: View {
                let additionalImage = plantDetails.additionalImage {
                 HStack {
                     Image(systemName: additionalImage)
-                        .padding(.leading, 16)
+                        .padding(.leading, Spacing.small)
                         .foregroundColor(plantDetails.textColor)
                     Text(additionalDescription)
                         .lineLimit(0)

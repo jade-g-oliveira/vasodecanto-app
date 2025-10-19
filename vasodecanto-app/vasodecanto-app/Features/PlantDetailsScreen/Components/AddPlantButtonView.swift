@@ -25,6 +25,6 @@ struct AddPlantButtonView: View {
             .background(Color.primaryApp)
             .cornerRadius(8)
         }
-        .padding(.horizontal, 16)
+        .padding(.horizontal, Spacing.small)
     }
 }
