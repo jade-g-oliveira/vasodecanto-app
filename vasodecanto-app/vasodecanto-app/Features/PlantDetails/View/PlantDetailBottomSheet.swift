@@ -9,6 +9,7 @@ struct PlantDetailBottomSheet: View {
     @Environment(\.dismiss) var dismiss
     @State private var showingBottomSheet = false
     @State private var showingLoginView = false
+    @Binding var shouldNavigateToDetails: Bool
     let isLoggedUser: Bool = true
     var body: some View {
         ZStack(alignment: .topTrailing) {
@@ -47,11 +48,12 @@ struct PlantDetailBottomSheet: View {
                     .cornerRadius(Spacing.small)
                     Spacer().frame(width: Spacing.extraSmall)
                     Button("Mais Informações") {
-                        // Ação do botão Mais Informações
+                        shouldNavigateToDetails = true
+                        dismiss()
                     }
                     .padding(.vertical, Spacing.small)
                     .frame(maxWidth: .infinity)
-                    .background(Color("DefaultGrayColor"))
+                    .background(Color(isLoggedUser ? "GreenLightColor" : "DefaultGrayColor"))
                     .foregroundColor(.white)
                     .font(.heeboBoldBody)
                     .cornerRadius(Spacing.small)

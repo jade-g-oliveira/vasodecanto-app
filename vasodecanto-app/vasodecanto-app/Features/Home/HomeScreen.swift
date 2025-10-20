@@ -22,6 +22,7 @@ struct HomeScreenConstants {
 
 struct HomeScreen: View {
     @State var isShowingSheet: Bool = false
+    @State private var navigateToDetails = false
     let repeatedPlants: [PlantInfo] = Array(
         repeating: PlantInfo(
             imageName: HomeScreenConstants.plantIlustration,
@@ -60,46 +61,54 @@ struct HomeScreen: View {
         )
     ]
     var body: some View {
-        VStack {
-            // MARK: Search Bar
-            PlantSearchBarView()
-            ScrollView {
-                Text(HomeScreenConstants.suggestionWording)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .multilineTextAlignment(.leading)
-                    .padding(.top, Spacing.extraSmall)
-                    .padding(.leading, Spacing.small)
-                    .font(.heeboBoldLarge)
-                    .foregroundStyle(.greenText)
-                // MARK: Plants Grids
-                WaterfallGrid(0..<repeatedPlants.count, id: \.self) { index in
-                    let plant = repeatedPlants[index]
-                    return PlantCardView(
-                        imageName: plant.imageName,
-                        title: plant.title,
-                        subtitle: plant.subtitle,
-                        plantBadges: badgePlants,
-                        index: index
-                    )
-                    .onTapGesture {
-                        self.isShowingSheet = true
+        NavigationStack {
+            VStack {
+                // MARK: Search Bar
+                PlantSearchBarView()
+                ScrollView {
+                    Text(HomeScreenConstants.suggestionWording)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .multilineTextAlignment(.leading)
+                        .padding(.top, Spacing.extraSmall)
+                        .padding(.leading, Spacing.small)
+                        .font(.heeboBoldLarge)
+                        .foregroundStyle(.greenText)
+                    // MARK: Plants Grids
+                    WaterfallGrid(0..<repeatedPlants.count, id: \.self) { index in
+                        let plant = repeatedPlants[index]
+                        return PlantCardView(
+                            imageName: plant.imageName,
+                            title: plant.title,
+                            subtitle: plant.subtitle,
+                            plantBadges: badgePlants,
+                            index: index
+                        )
+                        .onTapGesture {
+                            self.isShowingSheet = true
+                        }
                     }
+                    .gridStyle(
+                        columnsInPortrait: 2,
+                        columnsInLandscape: 4,
+                        spacing: CGFloat(Spacing.small),
+                        animation: .default
+                    )
+                    .padding(.horizontal)
                 }
-                .gridStyle(
-                    columnsInPortrait: 2,
-                    columnsInLandscape: 4,
-                    spacing: CGFloat(Spacing.small),
-                    animation: .default
+            }.background(
+                NavigationLink(
+                    destination: PlantDetailsScreen(),
+                    isActive: $navigateToDetails,
+                    label: { EmptyView() }
                 )
-                .padding(.horizontal)
-                .sheet(isPresented: $isShowingSheet) {
-                        // MARK: passar a planta selecionada para a bottomsheet
-                        PlantDetailBottomSheet()
-                            .presentationDragIndicator(.visible)
-                }
-            }
-            .background(Color(.grayBackground))
-        }.navigationBarBackButtonHidden(true)
+            )
+            .sheet(isPresented: $isShowingSheet) {
+                            // Passe o Binding para a sheet
+                            PlantDetailBottomSheet(shouldNavigateToDetails: $navigateToDetails)
+                        }
+            .navigationBarBackButtonHidden(true)
+        .background(Color(.grayBackground))
+        }
     }}
 
 #Preview {
