@@ -7,8 +7,20 @@ import SwiftUI
 
 struct PlantDetailBottomSheet: View {
     @Environment(\.dismiss) var dismiss
+    @State private var showingBottomSheet = false
+    @State private var showingLoginView = false
+    @Binding var shouldNavigateToDetails: Bool
+    let isLoggedUser: Bool = true
     var body: some View {
         ZStack(alignment: .topTrailing) {
+            Button {
+                dismiss()
+            } label: {
+                Image(systemName: "xmark")
+                    .font(.system(size: Spacing.regular, weight: .bold))
+                    .foregroundColor(Color("GreenTextColor"))
+                    .padding(.horizontal, Spacing.regular)
+            }
             VStack {
                 Spacer()
                     .frame(height: Spacing.large)
@@ -19,9 +31,13 @@ struct PlantDetailBottomSheet: View {
                 Spacer()
                     .frame(height: Spacing.extraSmall)
                 HStack {
-                    // Botão 1: Login (Fundo Marrom)
-                    Button("Login") {
-                        // Ação do botão Login
+                    // MARK: botão que vai para login ou adicionar na lista
+                    Button(isLoggedUser ? "Adicionar a Lista" : "LOGIN") {
+                        if isLoggedUser {
+                            showingBottomSheet = true
+                        } else {
+                            showingLoginView = true
+                        }
                     }
                     .padding(.vertical, Spacing.small)
                     // Faz o botão se expandir horizontalmente
@@ -32,27 +48,30 @@ struct PlantDetailBottomSheet: View {
                     .cornerRadius(Spacing.small)
                     Spacer().frame(width: Spacing.extraSmall)
                     Button("Mais Informações") {
-                        // Ação do botão Mais Informações
+                        shouldNavigateToDetails = true
+                        dismiss()
                     }
                     .padding(.vertical, Spacing.small)
                     .frame(maxWidth: .infinity)
-                    .background(Color("DefaultGrayColor"))
+                    .background(Color(isLoggedUser ? "GreenLightColor" : "DefaultGrayColor"))
                     .foregroundColor(.white)
                     .font(.heeboBoldBody)
                     .cornerRadius(Spacing.small)
                 }.padding(.horizontal, Spacing.regular)
             }.padding(.vertical, Spacing.small)
-            Button {
-                dismiss() // Chama a ação para fechar a sheet
-            } label: {
-                Image(systemName: "xmark")
-                    .font(.system(size: Spacing.regular, weight: .bold))
-                    .foregroundColor(Color("GreenTextColor"))
-                    .padding(.horizontal, Spacing.regular)
-            }
         }
-        // controla o tamanho da bottomsheet
+        .sheet(isPresented: $showingBottomSheet) {
+            AddToListBottomSheet()
+        }
+        .fullScreenCover(isPresented: $showingLoginView) {
+            // MARK: navegação para tela de login
+                LoginView()
+        }
         .presentationDetents([.fraction(0.80)])
         .presentationCornerRadius(Spacing.extraLarge)
     }
+}
+
+#Preview {
+    HomeScreen()
 }

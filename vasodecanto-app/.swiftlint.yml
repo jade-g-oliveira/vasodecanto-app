@@ -1,4 +1,6 @@
 # .swiftlint.yml
+included:
+  - vasodecanto-app
 
 excluded:
   - Pods
