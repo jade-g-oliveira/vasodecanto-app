@@ -34,6 +34,13 @@ struct ContentView: View {
             .buttonStyle(.borderedProminent)
 
             NavigationLink {
+                PlantDetailsScreen()
+            } label: {
+                Text("Detalhes da Planta")
+            }
+            .buttonStyle(.borderedProminent)
+
+            NavigationLink {
                 ProfileView()
             } label: {
                 Text("Perfil")
