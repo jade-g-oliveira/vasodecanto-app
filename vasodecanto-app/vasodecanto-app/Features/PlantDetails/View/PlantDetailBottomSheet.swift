@@ -10,6 +10,14 @@ struct PlantDetailBottomSheet: View {
     @State private var showingBottomSheet = false
     var body: some View {
         ZStack(alignment: .topTrailing) {
+            Button {
+                dismiss() // Chama a ação para fechar a sheet
+            } label: {
+                Image(systemName: "xmark")
+                    .font(.system(size: Spacing.regular, weight: .bold))
+                    .foregroundColor(Color("GreenTextColor"))
+                    .padding(.horizontal, Spacing.regular)
+            }
             VStack {
                 Spacer()
                     .frame(height: Spacing.large)
@@ -20,12 +28,10 @@ struct PlantDetailBottomSheet: View {
                 Spacer()
                     .frame(height: Spacing.extraSmall)
                 HStack {
-                    // Botão 1: Login (Fundo Marrom)
                     Button("Login") {
                         showingBottomSheet = true
                     }
                     .sheet(isPresented: $showingBottomSheet) {
-                        // conteúdo da bottomsheet
                         AddToListBottomSheet()
                     }
                     .padding(.vertical, Spacing.small)
@@ -47,17 +53,12 @@ struct PlantDetailBottomSheet: View {
                     .cornerRadius(Spacing.small)
                 }.padding(.horizontal, Spacing.regular)
             }.padding(.vertical, Spacing.small)
-            Button {
-                dismiss() // Chama a ação para fechar a sheet
-            } label: {
-                Image(systemName: "xmark")
-                    .font(.system(size: Spacing.regular, weight: .bold))
-                    .foregroundColor(Color("GreenTextColor"))
-                    .padding(.horizontal, Spacing.regular)
-            }
         }
-        // controla o tamanho da bottomsheet
         .presentationDetents([.fraction(0.80)])
         .presentationCornerRadius(Spacing.extraLarge)
     }
+}
+
+#Preview {
+    HomeScreen()
 }

@@ -18,13 +18,6 @@ struct ContentView: View {
                 Text("Login")
             }
             .buttonStyle(.borderedProminent)
-            Button("Abrir Bottom Sheet") {
-                showingBottomSheet = true
-            }
-            .sheet(isPresented: $showingBottomSheet) {
-                // conteúdo da bottomsheet
-                PlantDetailBottomSheet()
-            }
 
             NavigationLink {
                 TabViewContainer(selectedTab: .house)

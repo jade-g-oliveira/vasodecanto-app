@@ -7,7 +7,6 @@
 import SwiftUI
 
 struct AddToListBottomSheet: View {
-    
     var body: some View {
         ZStack{}
     }
