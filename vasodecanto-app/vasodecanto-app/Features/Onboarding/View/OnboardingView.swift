@@ -15,6 +15,7 @@ struct OnboardingView: View {
                 BubbleView(text: "Adicione uma planta ao seu ambiente.")
                 NavigationLink {
                     // MARK: Adicionar navegação para a lista de plantas
+                    TabViewContainer(selectedTab: .house)
                 } label: {
                     Image(systemName: "plus")
                         .font(.heeboBoldGiant) // Tamanho grande para o ícone

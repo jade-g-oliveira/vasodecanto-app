@@ -21,7 +21,6 @@ struct HomeScreenConstants {
     }
 
 struct HomeScreen: View {
-    @State var selectedPlant: PlantInfo? = nil
     @State var isShowingSheet: Bool = false
     let repeatedPlants: [PlantInfo] = Array(
         repeating: PlantInfo(
@@ -38,7 +37,6 @@ struct HomeScreen: View {
         ),
         count: 15
     )
-    
     let badgePlants: [PlantBadge] = [
         .init(
             iconName: HomeScreenConstants.sunIcon,
@@ -61,12 +59,10 @@ struct HomeScreen: View {
             iconColor: .white
         )
     ]
-    
     var body: some View {
         VStack {
             // MARK: Search Bar
             PlantSearchBarView()
-            
             ScrollView {
                 Text(HomeScreenConstants.suggestionWording)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -75,7 +71,6 @@ struct HomeScreen: View {
                     .padding(.leading, Spacing.small)
                     .font(.heeboBoldLarge)
                     .foregroundStyle(.greenText)
-                
                 // MARK: Plants Grids
                 WaterfallGrid(0..<repeatedPlants.count, id: \.self) { index in
                     let plant = repeatedPlants[index]
@@ -87,7 +82,6 @@ struct HomeScreen: View {
                         index: index
                     )
                     .onTapGesture {
-                        self.selectedPlant = plant
                         self.isShowingSheet = true
                     }
                 }
@@ -99,13 +93,13 @@ struct HomeScreen: View {
                 )
                 .padding(.horizontal)
                 .sheet(isPresented: $isShowingSheet) {
-                        // Exemplo: passe a planta selecionada para uma nova View
+                        // MARK: passar a planta selecionada para a bottomsheet
                         PlantDetailBottomSheet()
                             .presentationDragIndicator(.visible)
                 }
             }
             .background(Color(.grayBackground))
-        }
+        }.navigationBarBackButtonHidden(true)
     }}
 
 #Preview {

@@ -8,10 +8,12 @@ import SwiftUI
 struct PlantDetailBottomSheet: View {
     @Environment(\.dismiss) var dismiss
     @State private var showingBottomSheet = false
+    @State private var showingLoginView = false
+    let isLoggedUser: Bool = true
     var body: some View {
         ZStack(alignment: .topTrailing) {
             Button {
-                dismiss() // Chama a ação para fechar a sheet
+                dismiss()
             } label: {
                 Image(systemName: "xmark")
                     .font(.system(size: Spacing.regular, weight: .bold))
@@ -28,11 +30,13 @@ struct PlantDetailBottomSheet: View {
                 Spacer()
                     .frame(height: Spacing.extraSmall)
                 HStack {
-                    Button("Login") {
-                        showingBottomSheet = true
-                    }
-                    .sheet(isPresented: $showingBottomSheet) {
-                        AddToListBottomSheet()
+                    // MARK: botão que vai para login ou adicionar na lista
+                    Button(isLoggedUser ? "Adicionar a Lista" : "LOGIN") {
+                        if isLoggedUser {
+                            showingBottomSheet = true
+                        } else {
+                            showingLoginView = true
+                        }
                     }
                     .padding(.vertical, Spacing.small)
                     // Faz o botão se expandir horizontalmente
@@ -53,6 +57,13 @@ struct PlantDetailBottomSheet: View {
                     .cornerRadius(Spacing.small)
                 }.padding(.horizontal, Spacing.regular)
             }.padding(.vertical, Spacing.small)
+        }
+        .sheet(isPresented: $showingBottomSheet) {
+            AddToListBottomSheet()
+        }
+        .fullScreenCover(isPresented: $showingLoginView) {
+            // MARK: navegação para tela de login
+                LoginView()
         }
         .presentationDetents([.fraction(0.80)])
         .presentationCornerRadius(Spacing.extraLarge)
