@@ -11,7 +11,6 @@ struct MyListScreen: View {
     @StateObject private var viewModel = MyListViewModel()
     var body: some View {
         ZStack(alignment: .bottom) {
-            // Conteúdo principal
             Group {
                     NavigationStack {
                         ScrollView {

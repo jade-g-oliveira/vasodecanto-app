@@ -11,7 +11,7 @@ struct EmptyStateView: View {
     var body: some View {
         VStack(spacing: Spacing.small) {
             Image(systemName: "list.bullet.rectangle.portrait")
-                .font(.system(size: 48))
+                .font(.system(size: Spacing.extraLarge))
                 .foregroundStyle(.secondary)
             Text("Você ainda não criou nenhuma lista")
                 .font(.heeboBody)
