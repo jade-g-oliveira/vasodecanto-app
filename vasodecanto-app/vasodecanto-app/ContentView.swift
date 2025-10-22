@@ -12,7 +12,7 @@ struct ContentView: View {
             if isFirstAccess {
                 OnboardingView()
             } else {
-                TabViewContainer(selectedTab: .house)
+                TabViewContainer(selectedTab: .search)
             }
         }
     }

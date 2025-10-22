@@ -27,12 +27,12 @@ struct MyListCard: View {
                     )
                 )
                 .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: Spacing.micro) {
                 Text(list.title.uppercased())
                     .font(.staatlichesRegularTitle)
                     .foregroundStyle(.white)
                 Text("\(list.itemCount) Itens")
-                    .font(.custom("Heebo-Bold", size: 12))
+                    .font(.heeboBoldTinyCaption)
                     .foregroundStyle(.white)
             }
             .padding(.top, Spacing.large)
@@ -44,7 +44,7 @@ struct MyListCard: View {
                         onDelete()
                     } label: {
                         Image(systemName: "trash")
-                            .font(.system(size: 16, weight: .bold))
+                            .font(.system(size: Spacing.small, weight: .bold))
                             .padding(10)
                             .background(.regularMaterial)
                             .clipShape(Circle())
