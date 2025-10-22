@@ -13,18 +13,18 @@ struct MyListHeader: View {
     var body: some View {
         ZStack {
             Text(title)
-                .font(.custom("Heebo-Bold", size: 24))
+                .font(.heeboBoldLarge)
                 .foregroundStyle(Color("GreenPlaceHolderColor"))
                 .frame(maxWidth: .infinity, alignment: .center)
             HStack {
                 Spacer()
                 Button("Editar", action: onEdit)
-                    .font(.custom("Heebo-Medium", size: 14))
+                    .font(.heeboBoldCaption)
                     .foregroundStyle(Color(.greenText))
             }
-            .padding(.horizontal, 16)
+            .padding(.horizontal, Spacing.small)
         }
-        .padding(.horizontal, 16)
+        .padding(.horizontal, Spacing.small)
     }
 }
 #Preview {

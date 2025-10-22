@@ -29,14 +29,14 @@ struct MyListCard: View {
                 .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
             VStack(alignment: .leading, spacing: 4) {
                 Text(list.title.uppercased())
-                    .font(.custom("Staatliches-Regular", size: 32))
+                    .font(.staatlichesRegularTitle)
                     .foregroundStyle(.white)
                 Text("\(list.itemCount) Itens")
                     .font(.custom("Heebo-Bold", size: 12))
                     .foregroundStyle(.white)
             }
-            .padding(.top, 40)
-            .padding(.leading, 16)
+            .padding(.top, Spacing.large)
+            .padding(.leading, Spacing.small)
             if isEditing {
                 HStack {
                     Spacer()

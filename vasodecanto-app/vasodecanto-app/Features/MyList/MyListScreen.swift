@@ -19,7 +19,7 @@ struct MyListScreen: View {
                                 MyListHeader(title: "Minhas listas", onEdit: {
                                     viewModel.isEditing.toggle()
                                 })
-                                .padding(.top, 8)
+                                .padding(.top, Spacing.extraSmall)
 
                                 if viewModel.lists.isEmpty {
                                     EmptyStateView()

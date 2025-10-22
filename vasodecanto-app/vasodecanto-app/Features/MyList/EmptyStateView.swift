@@ -14,11 +14,11 @@ struct EmptyStateView: View {
                 .font(.system(size: 48))
                 .foregroundStyle(.secondary)
             Text("Você ainda não criou nenhuma lista")
-                .font(.custom("Heebo-Regular", size: 16))
+                .font(.heeboBody)
                 .foregroundStyle(.secondary)
         }
         .frame(maxWidth: .infinity)
-        .padding(.vertical, 16)
+        .padding(.vertical, Spacing.small)
     }
 }
 #Preview {
