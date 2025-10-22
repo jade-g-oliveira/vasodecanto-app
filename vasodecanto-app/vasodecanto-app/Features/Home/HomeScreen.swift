@@ -18,11 +18,12 @@ struct HomeScreenConstants {
 
     // MARK: Wordings
     static let suggestionWording = "Sugestões"
-    }
+}
 
 struct HomeScreen: View {
     @State var isShowingSheet: Bool = false
     @State private var navigateToDetails = false
+
     let repeatedPlants: [PlantInfo] = Array(
         repeating: PlantInfo(
             imageName: HomeScreenConstants.plantIlustration,
@@ -38,6 +39,7 @@ struct HomeScreen: View {
         ),
         count: 15
     )
+
     let badgePlants: [PlantBadge] = [
         .init(
             iconName: HomeScreenConstants.sunIcon,
@@ -60,11 +62,13 @@ struct HomeScreen: View {
             iconColor: .white
         )
     ]
+
     var body: some View {
         NavigationStack {
             VStack {
                 // MARK: Search Bar
                 PlantSearchBarView()
+
                 ScrollView {
                     Text(HomeScreenConstants.suggestionWording)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -73,6 +77,7 @@ struct HomeScreen: View {
                         .padding(.leading, Spacing.small)
                         .font(.heeboBoldLarge)
                         .foregroundStyle(.greenText)
+
                     // MARK: Plants Grids
                     WaterfallGrid(0..<repeatedPlants.count, id: \.self) { index in
                         let plant = repeatedPlants[index]
@@ -95,7 +100,8 @@ struct HomeScreen: View {
                     )
                     .padding(.horizontal)
                 }
-            }.background(
+            }
+            .background(
                 NavigationLink(
                     destination: PlantDetailsScreen(),
                     isActive: $navigateToDetails,
@@ -103,13 +109,13 @@ struct HomeScreen: View {
                 )
             )
             .sheet(isPresented: $isShowingSheet) {
-                            // Passe o Binding para a sheet
-                            PlantDetailBottomSheet(shouldNavigateToDetails: $navigateToDetails)
-                        }
+                PlantDetailBottomSheet(shouldNavigateToDetails: $navigateToDetails)
+            }
             .navigationBarBackButtonHidden(true)
-        .background(Color(.grayBackground))
+            .background(Color(.grayBackground))
         }
-    }}
+    }
+}
 
 #Preview {
     HomeScreen()
