@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EmptyStateView: View {
     var body: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: Spacing.small) {
             Image(systemName: "list.bullet.rectangle.portrait")
                 .font(.system(size: 48))
                 .foregroundStyle(.secondary)

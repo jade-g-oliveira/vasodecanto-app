@@ -50,7 +50,7 @@ struct MyListCard: View {
                             .clipShape(Circle())
                     }
                 }
-                .padding(12)
+                .padding(Spacing.small)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
             }
         }
