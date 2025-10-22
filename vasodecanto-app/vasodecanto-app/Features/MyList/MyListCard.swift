@@ -59,5 +59,5 @@ struct MyListCard: View {
     }
 }
 #Preview {
-    MyListScreen()
+    TabViewContainer(selectedTab: .house)
 }

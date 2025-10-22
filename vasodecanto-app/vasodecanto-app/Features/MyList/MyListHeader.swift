@@ -20,7 +20,7 @@ struct MyListHeader: View {
                 Spacer()
                 Button("Editar", action: onEdit)
                     .font(.custom("Heebo-Medium", size: 14))
-                    .foregroundStyle(Color("GreenPlaceHolderColor"))
+                    .foregroundStyle(Color(.greenText))
             }
             .padding(.horizontal, 16)
         }
@@ -28,5 +28,5 @@ struct MyListHeader: View {
     }
 }
 #Preview {
-    MyListScreen()
+    TabViewContainer(selectedTab: .house)
 }

@@ -13,11 +13,11 @@ struct CreateListButton: View {
     var body: some View {
         Button(action: action) {
             Text("Criar uma lista")
-                .font(.custom("Heebo-Bold", size: 16))
+                .font(.heeboBoldBody)
                 .foregroundStyle(.white)
                 .frame(maxWidth: .infinity)
-                .padding(.vertical, 16)
-                .padding(.horizontal, 16)
+                .padding(.vertical, Spacing.small)
+                .padding(.horizontal, Spacing.small)
                 .background(
                     RoundedRectangle(cornerRadius: 16)
                         .fill(
@@ -36,5 +36,5 @@ struct CreateListButton: View {
     }
 }
 #Preview {
-    MyListScreen()
+    TabViewContainer(selectedTab: .house)
 }

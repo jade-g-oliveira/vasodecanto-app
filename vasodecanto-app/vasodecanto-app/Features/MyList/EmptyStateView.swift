@@ -22,5 +22,5 @@ struct EmptyStateView: View {
     }
 }
 #Preview {
-    MyListScreen()
+    TabViewContainer(selectedTab: .house)
 }

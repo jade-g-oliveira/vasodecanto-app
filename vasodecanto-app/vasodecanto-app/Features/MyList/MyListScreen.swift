@@ -8,14 +8,11 @@
 import SwiftUI
 
 struct MyListScreen: View {
-    @State private var selectedTab: CustomTabBar.Tab = .listas
     @StateObject private var viewModel = MyListViewModel()
     var body: some View {
         ZStack(alignment: .bottom) {
             // Conteúdo principal
             Group {
-                switch selectedTab {
-                case .listas:
                     NavigationStack {
                         ScrollView {
                             VStack(spacing: 16) {
@@ -26,9 +23,9 @@ struct MyListScreen: View {
 
                                 if viewModel.lists.isEmpty {
                                     EmptyStateView()
-                                        .padding(.horizontal, 16)
+                                        .padding(.horizontal, Spacing.small)
                                 } else {
-                                    VStack(spacing: 16) {
+                                    VStack(spacing: Spacing.small) {
                                         ForEach(viewModel.lists) { list in
                                             MyListCard(list: list, isEditing: viewModel.isEditing) {
                                                 // onTap
@@ -37,36 +34,26 @@ struct MyListScreen: View {
                                             }
                                         }
                                     }
-                                    .padding(.horizontal, 16)
+                                    .padding(.horizontal, Spacing.small)
                                 }
 
                                 CreateListButton(action: {
                                     viewModel.createList()
                                 })
-                                .padding(.horizontal, 16)
-                                .padding(.top, 16)
+                                .padding(.horizontal, Spacing.small)
+                                .padding(.top, Spacing.small)
                             }
-                            .padding(.bottom, 96)
+                            .padding(.bottom, Spacing.small)
                         }
                         .background(Color(.systemGroupedBackground))
                         .navigationBarHidden(true)
                     }
 
-                case .adicionar:
-                    HomeScreen()
-
-                case .perfil:
-                    ProfileView()
                 }
             }
-            // Tab Bar personalizada
-            CustomTabBar(selectedTab: $selectedTab)
-                .padding(.horizontal, 0)
         }
-        .ignoresSafeArea(.keyboard, edges: .bottom)
     }
-}
 
 #Preview {
-    MyListScreen()
+    TabViewContainer(selectedTab: .house)
 }

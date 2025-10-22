@@ -33,7 +33,7 @@ struct TabViewContainer: View {
                 systemImage: TabViewConstants.listIcon,
                 value: .house
             ) {
-                HomeScreen()
+                MyListScreen()
             }
 
             Tab(
@@ -41,10 +41,7 @@ struct TabViewContainer: View {
                 systemImage: TabViewConstants.searchIcon,
                 value: .search
             ) {
-                Image(systemName: TabViewConstants.searchIcon)
-                    .imageScale(.large)
-                    .foregroundStyle(.blue)
-                Text("Tela em construção")
+                HomeScreen()
             }
 
             Tab(
