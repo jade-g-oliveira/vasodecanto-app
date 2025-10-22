@@ -15,7 +15,7 @@ struct MyListScreen: View {
             Group {
                     NavigationStack {
                         ScrollView {
-                            VStack(spacing: 16) {
+                            VStack(spacing: Spacing.small) {
                                 MyListHeader(title: "Minhas listas", onEdit: {
                                     viewModel.isEditing.toggle()
                                 })
