@@ -13,6 +13,7 @@ struct SingInView: View {
 
     var body: some View {
         ZStack {
+
             Image("backGroundLogin")
                 .resizable()
                 .scaledToFill()
@@ -68,6 +69,7 @@ struct SingInView: View {
                 .font(.heeboBoldBody)
             }
             .padding(.bottom, 100)
+
         }
     }
 }
