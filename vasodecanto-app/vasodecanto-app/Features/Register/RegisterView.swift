@@ -31,13 +31,13 @@ struct RegisterView: View {
             )
             .ignoresSafeArea()
 
-            VStack(spacing: 8) {
+            VStack(spacing: Spacing.extraSmall) {
                 Spacer()
 
                 Image("planterIconWhite")
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 56)
+                    .frame(height: Spacing.xxLarge)
 
                 Text("Registre-se")
                     .font(.heeboBoldLarge)
@@ -81,7 +81,7 @@ struct RegisterView: View {
                 .frame(maxWidth: 194, maxHeight: 40)
                 .background(Color("SecundaryAppColor"))
                 .foregroundColor(.white)
-                .cornerRadius(16)
+                .cornerRadius(Spacing.small)
                 .font(.heeboBoldBody)
             }
             .padding(.bottom, 100)

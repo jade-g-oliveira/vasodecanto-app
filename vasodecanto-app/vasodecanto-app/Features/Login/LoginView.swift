@@ -17,13 +17,13 @@ struct LoginView: View {
                 VStack {
                     Spacer()
 
-                    Image("loginIPlantlustration")
+                    Image("loginPlantIlustration")
                         .resizable()
                         .scaledToFit()
                         .frame(height: 268)
-                        .padding(.bottom, 16)
+                        .padding(.bottom, Spacing.small)
 
-                    VStack(spacing: 8) {
+                    VStack(spacing: Spacing.extraSmall) {
                         // Botão de Login
                         NavigationLink(destination: SingInView()) {
                             Text("LOGIN")
@@ -32,7 +32,7 @@ struct LoginView: View {
                                 .frame(maxWidth: .infinity)
                                 .padding()
                                 .background(Color("SecundaryAppColor"))
-                                .cornerRadius(16)
+                                .cornerRadius(Spacing.small)
                         }
 
                         // Botão Apple
@@ -46,7 +46,7 @@ struct LoginView: View {
                             .frame(maxWidth: .infinity)
                             .padding()
                             .background(Color.black)
-                            .cornerRadius(16)
+                            .cornerRadius(Spacing.small)
                         })
 
                         // Botão Google
@@ -62,12 +62,12 @@ struct LoginView: View {
                             .frame(maxWidth: .infinity)
                             .padding()
                             .background(Color.white)
-                            .cornerRadius(16)
+                            .cornerRadius(Spacing.small)
                         })
                     }
-                    .padding(.horizontal, 24)
+                    .padding(.horizontal, Spacing.regular)
 
-                    HStack(spacing: 4) {
+                    HStack(spacing: Spacing.micro) {
                         Text("Não tem uma conta?")
                             .foregroundColor(.white)
                         NavigationLink(destination: RegisterView()) {

@@ -40,8 +40,8 @@ struct CustomTextField: View {
         }
         .padding()
         .background(Color.white)
-        .cornerRadius(8)
-        .padding(.horizontal, 24)
+        .cornerRadius(Spacing.extraSmall)
+        .padding(.horizontal, Spacing.regular)
         .frame(maxWidth: 380)
     }
 }
