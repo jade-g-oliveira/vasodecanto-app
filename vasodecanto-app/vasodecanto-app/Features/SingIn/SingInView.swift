@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SingInView: View {
     @State private var email = ""
-    @State private var senha = ""
+    @State private var password = ""
 
     var body: some View {
         ZStack {
@@ -30,13 +30,13 @@ struct SingInView: View {
             )
             .ignoresSafeArea()
 
-            VStack(spacing: 8) {
+            VStack(spacing: Spacing.extraSmall) {
                 Spacer()
 
                 Image("planterIconWhite")
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 56)
+                    .frame(height: Spacing.xxLarge)
 
                 Text("Faça o login")
                     .font(.heeboBoldLarge)
@@ -51,21 +51,21 @@ struct SingInView: View {
                 CustomTextField(
                     iconName: "ellipsis.rectangle",
                     placeholder: "Senha",
-                    text: $senha,
+                    text: $password,
                     isSecure: true
                 )
 
                 Button("LOGIN") {
                     print("""
                         Email: \(email)
-                        Senha: \(senha)
+                        Senha: \(password)
                         """)
                 }
                 .padding()
                 .frame(maxWidth: 194, maxHeight: 40)
                 .background(Color("SecundaryAppColor"))
                 .foregroundColor(.white)
-                .cornerRadius(16)
+                .cornerRadius(Spacing.small)
                 .font(.heeboBoldBody)
             }
             .padding(.bottom, 100)

@@ -9,9 +9,9 @@ import SwiftUI
 
 struct RegisterView: View {
     @State private var email = ""
-    @State private var nome = ""
-    @State private var senha = ""
-    @State private var confirmarSenha = ""
+    @State private var name = ""
+    @State private var password = ""
+    @State private var confirmPassword = ""
 
     var body: some View {
         ZStack {
@@ -52,29 +52,29 @@ struct RegisterView: View {
                 CustomTextField(
                     iconName: "person",
                     placeholder: "Nome",
-                    text: $nome
+                    text: $name
                 )
 
                 CustomTextField(
                     iconName: "ellipsis.rectangle",
                     placeholder: "Senha",
-                    text: $senha,
+                    text: $password,
                     isSecure: true
                 )
 
                 CustomTextField(
                     iconName: "ellipsis.rectangle.fill",
                     placeholder: "Confirmar senha",
-                    text: $confirmarSenha,
+                    text: $confirmPassword,
                     isSecure: true
                 )
 
                 Button("CADASTRAR") {
                     print("""
                         Email: \(email)
-                        Nome: \(nome)
-                        Senha: \(senha)
-                        Confirmar: \(confirmarSenha)
+                        Nome: \(name)
+                        Senha: \(password)
+                        Confirmar: \(confirmPassword)
                         """)
                 }
                 .padding()
