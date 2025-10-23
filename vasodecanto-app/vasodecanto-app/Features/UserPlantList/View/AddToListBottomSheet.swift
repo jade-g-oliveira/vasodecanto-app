@@ -34,7 +34,7 @@ struct AddToListBottomSheet: View {
                             ForEach(lists, id: \.name) { list in
                                 HStack {
                                     VStack {
-                                        Image("LivingRoom")
+                                        Image("livingRoom")
                                             .resizable()
                                             .scaledToFill()
                                             .frame(width: 144, height: 144)

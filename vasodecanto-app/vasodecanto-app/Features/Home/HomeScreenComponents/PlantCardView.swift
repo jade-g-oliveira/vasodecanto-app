@@ -62,7 +62,7 @@ struct PlantCardView: View {
 
 #Preview {
     PlantCardView(
-        imageName: "PlantIlustration1",
+        imageName: "plantIlustration1",
         title: "Calatéia",
         subtitle: "calathea reseopicta",
         plantBadges: [

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Logo.svg",
+      "filename" : "simboloVasoDeCantoBranco.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Logo 1.svg",
+      "filename" : "planterIconWhite.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Logo 2.svg",
+      "filename" : "planterIconWhite 1.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }
