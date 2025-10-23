@@ -11,6 +11,9 @@ extension Font {
         static var heeboCaption: Font {
             .custom("Heebo-Regular", size: FontSize.caption)
         }
+        static var heeboBoldTinyCaption: Font {
+            .custom("Heebo-Bold", size: FontSize.tinyCaption)
+        }
         /// - Fonte: **14.0**
         static var heeboBoldCaption: Font {
             .custom("Heebo-Bold", size: FontSize.caption)

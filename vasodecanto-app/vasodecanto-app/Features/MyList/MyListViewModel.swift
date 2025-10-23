@@ -18,6 +18,7 @@ final class MyListViewModel: ObservableObject {
     @Published var lists: [MyList] = [
         MyList(id: UUID(), title: "SALA DE ESTAR", itemCount: 3, imageName: "livingroom")
     ]
+
     @Published var isEditing: Bool = false
 
     func createList() {

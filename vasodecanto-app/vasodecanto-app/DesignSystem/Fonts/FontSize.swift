@@ -9,6 +9,8 @@ import Foundation
 struct FontSize {
     /// - Valor: **8.0**
     static let small: CGFloat = 8.0
+    /// - Valor: **12.0**
+    static let tinyCaption: CGFloat = 12.0
     /// - Valor: **14.0**
     static let caption: CGFloat = 14.0
     /// - Valor: **16.0**
