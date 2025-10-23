@@ -9,7 +9,7 @@ import SwiftUI
 struct AddToListBottomSheet: View {
     @Environment(\.dismiss) var dismiss
     let lists = [
-        UserListModel(name: "Sala de Estar", imageName: "LivingRoom")
+        UserListModel(name: "Sala de Estar", imageName: "livingRoom")
     ]
     var body: some View {
         VStack(spacing: 0) {
