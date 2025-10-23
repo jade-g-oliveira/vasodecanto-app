@@ -15,7 +15,7 @@ struct MyListCard: View {
 
     var body: some View {
         ZStack(alignment: .topLeading) {
-            Image("LivingRoomList")
+            Image("livingRoom")
                 .resizable()
                 .scaledToFill()
                 .frame(height: 157)
