@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MyList: Identifiable, Equatable {
+struct MyList: Identifiable, Equatable, Hashable {
     let id: UUID
     var title: String
     var itemCount: Int
@@ -15,7 +15,6 @@ struct MyList: Identifiable, Equatable {
 }
 
 final class MyListViewModel: ObservableObject {
-
     @Published var lists: [MyList] = [
         MyList(id: UUID(), title: "SALA DE ESTAR", itemCount: 3, imageName: "livingroom")
     ]

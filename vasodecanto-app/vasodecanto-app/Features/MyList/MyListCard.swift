@@ -12,6 +12,7 @@ struct MyListCard: View {
     var isEditing: Bool
     var onTap: () -> Void
     var onDelete: () -> Void
+
     var body: some View {
         ZStack(alignment: .topLeading) {
             Image("LivingRoomList")
@@ -37,6 +38,7 @@ struct MyListCard: View {
             }
             .padding(.top, Spacing.large)
             .padding(.leading, Spacing.small)
+
             if isEditing {
                 HStack {
                     Spacer()
@@ -55,7 +57,9 @@ struct MyListCard: View {
             }
         }
         .contentShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-        .onTapGesture { onTap() }
+        .onTapGesture {
+            onTap()
+        }
     }
 }
 #Preview {
