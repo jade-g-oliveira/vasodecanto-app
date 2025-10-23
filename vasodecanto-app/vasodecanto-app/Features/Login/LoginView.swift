@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     var body: some View {
-        NavigationStack{
+        NavigationStack {
             ZStack {
                 Color("PrimaryAppColor")
                     .ignoresSafeArea()
@@ -17,7 +17,7 @@ struct LoginView: View {
                 VStack {
                     Spacer()
 
-                    Image("IlustracaoLogin")
+                    Image("loginIPlantlustration")
                         .resizable()
                         .scaledToFit()
                         .frame(height: 268)
@@ -25,7 +25,7 @@ struct LoginView: View {
 
                     VStack(spacing: 8) {
                         // Botão de Login
-                        NavigationLink(destination: SingInView()){
+                        NavigationLink(destination: SingInView()) {
                             Text("LOGIN")
                                 .font(.heeboBoldBody)
                                 .foregroundColor(.white)
@@ -52,7 +52,7 @@ struct LoginView: View {
                         // Botão Google
                         Button(action: {}, label: {
                             HStack {
-                                Image("Google__G__logo")
+                                Image("googleLogo")
                                     .resizable()
                                     .frame(width: 20, height: 20)
                                 Text("Continuar com o Google")
@@ -70,7 +70,7 @@ struct LoginView: View {
                     HStack(spacing: 4) {
                         Text("Não tem uma conta?")
                             .foregroundColor(.white)
-                        NavigationLink(destination: RegisterView()){
+                        NavigationLink(destination: RegisterView()) {
                             Text("Registre-se")
                                 .foregroundColor(.white)
                                 .fontWeight(.semibold)
@@ -84,7 +84,6 @@ struct LoginView: View {
         }
     }
 }
-
 
 #Preview {
     LoginView()

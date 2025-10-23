@@ -34,7 +34,7 @@ struct RegisterView: View {
             VStack(spacing: 8) {
                 Spacer()
 
-                Image("simboloVasoDeCantoBranco")
+                Image("planterIconWhite")
                     .resizable()
                     .scaledToFit()
                     .frame(height: 56)
