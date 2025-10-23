@@ -10,6 +10,7 @@ import SwiftUI
 struct MyListHeader: View {
     var title: String
     var onEdit: () -> Void
+
     var body: some View {
         ZStack {
             Text(title)

@@ -12,6 +12,7 @@ struct MyListCard: View {
     var isEditing: Bool
     var onTap: () -> Void
     var onDelete: () -> Void
+
     var body: some View {
         ZStack(alignment: .topLeading) {
             Image("LivingRoomList")
@@ -27,16 +28,17 @@ struct MyListCard: View {
                     )
                 )
                 .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: Spacing.micro) {
                 Text(list.title.uppercased())
                     .font(.staatlichesRegularTitle)
                     .foregroundStyle(.white)
                 Text("\(list.itemCount) Itens")
-                    .font(.custom("Heebo-Bold", size: 12))
+                    .font(.heeboBoldTinyCaption)
                     .foregroundStyle(.white)
             }
             .padding(.top, Spacing.large)
             .padding(.leading, Spacing.small)
+
             if isEditing {
                 HStack {
                     Spacer()
@@ -44,7 +46,7 @@ struct MyListCard: View {
                         onDelete()
                     } label: {
                         Image(systemName: "trash")
-                            .font(.system(size: 16, weight: .bold))
+                            .font(.system(size: Spacing.small, weight: .bold))
                             .padding(10)
                             .background(.regularMaterial)
                             .clipShape(Circle())
@@ -55,7 +57,9 @@ struct MyListCard: View {
             }
         }
         .contentShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-        .onTapGesture { onTap() }
+        .onTapGesture {
+            onTap()
+        }
     }
 }
 #Preview {
