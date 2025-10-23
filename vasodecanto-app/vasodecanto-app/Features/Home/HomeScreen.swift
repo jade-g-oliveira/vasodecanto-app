@@ -14,7 +14,7 @@ struct HomeScreenConstants {
     static let pillIcon = "pill"
     static let windIcon = "wind"
     static let humidityIcon = "humidity"
-    static let plantIlustration = "PlantIlustration1"
+    static let plantIlustration = "plantIlustration1"
 
     // MARK: Wordings
     static let suggestionWording = "Sugestões"
