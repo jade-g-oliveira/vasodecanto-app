@@ -48,12 +48,6 @@ struct MyListScreen: View {
                     }
                     .padding(.top, Spacing.extraSmall)
 
-                    CreateListButton {
-                        viewModel.createList()
-                    }
-                    .padding(.horizontal, Spacing.small)
-                    .padding(.top, Spacing.small)
-
                     NavigationLink(
                         destination: ListsPlantsView(),
                         isActive: $goToPlants
