@@ -21,4 +21,6 @@ struct FontSize {
     static let xTitle: CGFloat = 40.0
     /// - Valor: **56.0**
     static let giant: CGFloat = 56.0
+    /// - Valor: **64.0**
+    static let xGiant: CGFloat = 64.0
 }

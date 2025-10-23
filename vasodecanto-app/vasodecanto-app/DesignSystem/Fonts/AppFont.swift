@@ -43,6 +43,14 @@ extension Font {
         static var heeboBoldGiant: Font {
             .custom("Heebo-Bold", size: FontSize.giant)
         }
+        /// - Fonte: **32.0**
+        static var heeboBlackTitle: Font {
+        .custom("Heebo-Black", size: FontSize.title)
+        }
+        /// - Fonte: **64.0**
+        static var heeboBlackXGiant: Font {
+        .custom("Heebo-Black", size: FontSize.xGiant)
+        }
         // MARK: – Estilos Customizados Staatliches
         static var staatlichesRegularBody: Font {
             .custom("Staatliches-Regular", size: FontSize.body)

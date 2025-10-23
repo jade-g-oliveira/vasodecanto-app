@@ -32,7 +32,7 @@ struct VasoDeCantoApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppEntryView()
         }
     }
 }
