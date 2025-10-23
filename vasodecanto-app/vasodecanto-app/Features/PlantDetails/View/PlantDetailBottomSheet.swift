@@ -10,7 +10,7 @@ struct PlantDetailBottomSheet: View {
     @State private var showingBottomSheet = false
     @State private var showingLoginView = false
     @Binding var shouldNavigateToDetails: Bool
-    let isLoggedUser: Bool = true
+    @State var isLoggedUser: Bool = true
     var body: some View {
         ZStack(alignment: .topTrailing) {
             Button {
@@ -57,6 +57,7 @@ struct PlantDetailBottomSheet: View {
                     .foregroundColor(.white)
                     .font(.heeboBoldBody)
                     .cornerRadius(Spacing.small)
+                    .disabled(!isLoggedUser)
                 }.padding(.horizontal, Spacing.regular)
             }.padding(.vertical, Spacing.small)
         }
