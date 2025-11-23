@@ -12,7 +12,13 @@ struct ProfileView: View {
     let userName: String = "Nome do Usuário"
     let userEmail: String = "teste.email@gmail.com"
 
+    @EnvironmentObject private var authManager: AuthManager
+    @StateObject private var viewModel: ProfileViewModel
     @State private var showingLogoutAlert = false
+
+    init(authManager: AuthManager) {
+        _viewModel = StateObject(wrappedValue: ProfileViewModel(authManager: authManager))
+    }
 
     var body: some View {
         VStack {
@@ -56,8 +62,8 @@ struct ProfileView: View {
             .alert("Deseja sair da sua conta?", isPresented: $showingLogoutAlert) {
                 Button("Cancelar", role: .cancel) { }
                 Button("Sair", role: .destructive) {
-                    // MARK: implementar logoff real (ex.: limpar sessão, navegar, etc.)
                     print("Usuário saiu")
+                    try? viewModel.logOut()
                 }
             } message: {
                 Text("Você pode entrar novamente quando quiser.")
