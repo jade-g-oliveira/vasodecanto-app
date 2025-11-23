@@ -6,15 +6,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    let isFirstAccess: Bool = false
+    @AppStorage("isFirstAccess") private var isFirstAccess: Bool = true
     var body: some View {
         NavigationStack {
             if isFirstAccess {
-                OnboardingView()
+                OnboardingView(isFirstAccess: $isFirstAccess)
             } else {
                 TabViewContainer(selectedTab: .search)
             }
         }
+        .animation(.easeInOut(duration: 0.5), value: isFirstAccess)
     }
 }
 

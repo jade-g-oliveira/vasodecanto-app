@@ -6,32 +6,32 @@
 //
 import SwiftUI
 struct OnboardingView: View {
+    @Binding var isFirstAccess: Bool
     var body: some View {
         ZStack {
             Color("PrimaryAppColor").ignoresSafeArea()
             VStack {
-                // Spacer para empurrar o conteúdo principal para baixo
                 Spacer()
                 BubbleView(text: "Adicione uma planta ao seu ambiente.")
-                NavigationLink {
-                    // MARK: Adicionar navegação para a lista de plantas
-                    TabViewContainer(selectedTab: .house)
-                } label: {
+                Button(action: {
+                    isFirstAccess = false
+                }, label: {
                     Image(systemName: "plus")
-                        .font(.heeboBoldGiant) // Tamanho grande para o ícone
+                        .font(.heeboBoldGiant)
                         .foregroundColor(Color("GreenLightColor"))
-                        .padding(Spacing.large) // Padding interno para definir o tamanho do círculo
+                        .padding(Spacing.large)
                         .background(Color.white)
                         .clipShape(Circle())
                         .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
-                }
+                })
                 .padding(.top, Spacing.small)
-                // Spacer para empurrar o conteúdo para o centro
                 Spacer().frame(height: Spacing.big)
                 NavigationLink {
                     LoginView()
-                }
-                label: {
+                        .onAppear {
+                            isFirstAccess = false
+                        }
+                } label: {
                     Text("Já tenho uma conta")
                         .font(.heeboBoldBody)
                         .underline()
