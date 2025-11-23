@@ -6,47 +6,40 @@
 //
 import SwiftUI
 struct OnboardingView: View {
+    @Binding var isFirstAccess: Bool
     var body: some View {
-        NavigationStack {
-            ZStack {
-                Color("PrimaryAppColor").ignoresSafeArea()
-                VStack {
-                    // Spacer para empurrar o conteúdo principal para baixo
-                    Spacer()
-                    BubbleView(text: "Adicione uma planta ao seu ambiente.")
-
-                    NavigationLink {
-                        // MARK: Adicionar navegação para a lista de plantas
-                        TabViewContainer(selectedTab: .house)
-                    } label: {
-                        Image(systemName: "plus")
-                            .font(.heeboBoldGiant) // Tamanho grande para o ícone
-                            .foregroundColor(Color("GreenLightColor"))
-                            .padding(Spacing.large) // Padding interno para definir o tamanho do círculo
-                            .background(Color.white)
-                            .clipShape(Circle())
-                            .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
-                    }
-                    .padding(.top, Spacing.small)
-
-                    // Spacer para empurrar o conteúdo para o centro
-                    Spacer()
-                        .frame(height: Spacing.big)
-
-                    NavigationLink {
-                        LoginView()
-                    }
-                    label: {
-                        Text("Já tenho uma conta")
-                            .font(.heeboBoldBody)
-                            .underline()
-                            .foregroundColor(.white)
-                    }
-                    .padding(.bottom, 240)
+        ZStack {
+            Color("PrimaryAppColor").ignoresSafeArea()
+            VStack {
+                Spacer()
+                BubbleView(text: "Adicione uma planta ao seu ambiente.")
+                Button(action: {
+                    isFirstAccess = false
+                }, label: {
+                    Image(systemName: "plus")
+                        .font(.heeboBoldGiant)
+                        .foregroundColor(Color("GreenLightColor"))
+                        .padding(Spacing.large)
+                        .background(Color.white)
+                        .clipShape(Circle())
+                        .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
+                })
+                .padding(.top, Spacing.small)
+                Spacer().frame(height: Spacing.big)
+                NavigationLink {
+                    LoginView()
+                        .onAppear {
+                            isFirstAccess = false
+                        }
+                } label: {
+                    Text("Já tenho uma conta")
+                        .font(.heeboBoldBody)
+                        .underline()
+                        .foregroundColor(.white)
                 }
-                .padding(.horizontal, Spacing.big)
-                .navigationBarBackButtonHidden(true)
-            }
+                .padding(.bottom, 240)
+            }.padding(.horizontal, Spacing.big)
+            .navigationBarBackButtonHidden(true)
         }
     }
 }
