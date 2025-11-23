@@ -6,13 +6,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    let isFirstAccess: Bool = false
+    @EnvironmentObject var authManager: AuthManager
+
     var body: some View {
-        NavigationStack {
-            if isFirstAccess {
-                OnboardingView()
-            } else {
+        Group {
+            if authManager.isAuthenticated {
                 TabViewContainer(selectedTab: .search)
+            } else {
+                OnboardingView()
             }
         }
     }
