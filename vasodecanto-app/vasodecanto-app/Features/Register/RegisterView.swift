@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct RegisterView: View {
-    @State private var email = ""
-    @State private var name = ""
-    @State private var password = ""
-    @State private var confirmPassword = ""
+    @EnvironmentObject private var authManager: AuthManager
+    @StateObject private var viewModel: RegisterViewModel
+
+    init(authManager: AuthManager) {
+        _viewModel = StateObject(wrappedValue: RegisterViewModel(authManager: authManager))
+    }
 
     var body: some View {
         ZStack {
@@ -46,37 +48,42 @@ struct RegisterView: View {
                 CustomTextField(
                     iconName: "envelope",
                     placeholder: "Digite seu email",
-                    text: $email
+                    text: $viewModel.email
                 )
 
                 CustomTextField(
                     iconName: "person",
                     placeholder: "Nome",
-                    text: $name
+                    text: $viewModel.name
                 )
 
                 CustomTextField(
                     iconName: "ellipsis.rectangle",
                     placeholder: "Senha",
-                    text: $password,
+                    text: $viewModel.password,
                     isSecure: true
                 )
 
                 CustomTextField(
                     iconName: "ellipsis.rectangle.fill",
                     placeholder: "Confirmar senha",
-                    text: $confirmPassword,
+                    text: $viewModel.confirmPassword,
                     isSecure: true
                 )
 
+                if !viewModel.password.isEmpty && !viewModel.confirmPassword.isEmpty && !viewModel.isPasswordMatch {
+                    Text("As senhas não coincidem.")
+                        .foregroundColor(.red)
+                }
+
                 Button("CADASTRAR") {
                     print("""
-                        Email: \(email)
-                        Nome: \(name)
-                        Senha: \(password)
-                        Confirmar: \(confirmPassword)
+                        Email: \(viewModel.email)
+                        Senha: \(viewModel.password)
                         """)
+                    viewModel.signIn()
                 }
+                .disabled(viewModel.name.isEmpty || viewModel.email.isEmpty || viewModel.password.isEmpty || !viewModel.isPasswordMatch)
                 .padding()
                 .frame(maxWidth: 194, maxHeight: 40)
                 .background(Color("SecundaryAppColor"))
@@ -90,5 +97,5 @@ struct RegisterView: View {
 }
 
 #Preview {
-    RegisterView()
+    RegisterView(authManager: AuthManager(initialUser: nil))
 }
