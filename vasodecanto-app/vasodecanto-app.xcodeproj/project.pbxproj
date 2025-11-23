@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46153EF22ECF6CC300248C7A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 46153EF12ECF6CC300248C7A /* FirebaseAnalytics */; };
+		46153EF42ECF6CC300248C7A /* FirebaseAnalyticsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 46153EF32ECF6CC300248C7A /* FirebaseAnalyticsCore */; };
+		46153EF62ECF6CC300248C7A /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 46153EF52ECF6CC300248C7A /* FirebaseCore */; };
+		46153EF92ECF7DC200248C7A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 46153EF82ECF7DC200248C7A /* FirebaseAuth */; };
 		465C38B62E947979001683CE /* WaterfallGrid in Frameworks */ = {isa = PBXBuildFile; productRef = 465C38B52E947979001683CE /* WaterfallGrid */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +44,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46153EF22ECF6CC300248C7A /* FirebaseAnalytics in Frameworks */,
+				46153EF92ECF7DC200248C7A /* FirebaseAuth in Frameworks */,
+				46153EF42ECF6CC300248C7A /* FirebaseAnalyticsCore in Frameworks */,
+				46153EF62ECF6CC300248C7A /* FirebaseCore in Frameworks */,
 				465C38B62E947979001683CE /* WaterfallGrid in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				1AE891632E873DAC00F4BB05 /* vasodecanto-app */,
+				46153EF72ECF7DC200248C7A /* Frameworks */,
 				1AE891622E873DAC00F4BB05 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,6 +70,13 @@
 				1AE891612E873DAC00F4BB05 /* vasodecanto-app.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		46153EF72ECF7DC200248C7A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,6 +101,10 @@
 			name = "vasodecanto-app";
 			packageProductDependencies = (
 				465C38B52E947979001683CE /* WaterfallGrid */,
+				46153EF12ECF6CC300248C7A /* FirebaseAnalytics */,
+				46153EF32ECF6CC300248C7A /* FirebaseAnalyticsCore */,
+				46153EF52ECF6CC300248C7A /* FirebaseCore */,
+				46153EF82ECF7DC200248C7A /* FirebaseAuth */,
 			);
 			productName = "vasodecanto-app";
 			productReference = 1AE891612E873DAC00F4BB05 /* vasodecanto-app.app */;
@@ -116,6 +136,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				465C38B42E947979001683CE /* XCRemoteSwiftPackageReference "WaterfallGrid" */,
+				46153EF02ECF6CC300248C7A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1AE891622E873DAC00F4BB05 /* Products */;
@@ -380,6 +401,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		46153EF02ECF6CC300248C7A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.6.0;
+			};
+		};
 		465C38B42E947979001683CE /* XCRemoteSwiftPackageReference "WaterfallGrid" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/paololeonardi/WaterfallGrid";
@@ -391,6 +420,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		46153EF12ECF6CC300248C7A /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46153EF02ECF6CC300248C7A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		46153EF32ECF6CC300248C7A /* FirebaseAnalyticsCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46153EF02ECF6CC300248C7A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsCore;
+		};
+		46153EF52ECF6CC300248C7A /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46153EF02ECF6CC300248C7A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		46153EF82ECF7DC200248C7A /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46153EF02ECF6CC300248C7A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
 		465C38B52E947979001683CE /* WaterfallGrid */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 465C38B42E947979001683CE /* XCRemoteSwiftPackageReference "WaterfallGrid" */;
