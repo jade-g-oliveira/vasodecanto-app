@@ -13,6 +13,30 @@ struct RegisterView: View {
 
     init(authManager: AuthManager) {
         _viewModel = StateObject(wrappedValue: RegisterViewModel(authManager: authManager))
+    @State private var email = ""
+    @State private var name = ""
+    @State private var password = ""
+    @State private var confirmPassword = ""
+    
+    var isValidName: Bool {
+        let trimmedName = name.trimmingCharacters(in: .whitespacesAndNewlines)
+        return trimmedName.count >= 3 && trimmedName.contains(" ")
+    }
+    
+    var isEmailValid: Bool {
+        email.isValidEmail
+    }
+    
+    var passwordsMatch: Bool {
+        password == confirmPassword
+    }
+
+    var isButtonDisabled: Bool {
+        let isAnyFieldEmpty = email.isEmpty || name.isEmpty || password.isEmpty || confirmPassword.isEmpty
+        if isAnyFieldEmpty {
+            return true
+        }
+        return !isEmailValid || !isValidName || !passwordsMatch
     }
 
     var body: some View {
@@ -50,27 +74,35 @@ struct RegisterView: View {
                     placeholder: "Digite seu email",
                     text: $viewModel.email
                 )
+                if !email.isEmpty && !isEmailValid {
+                    ValidationMessageView(message: "Por favor, insira um email válido.")
+                }
 
                 CustomTextField(
                     iconName: "person",
-                    placeholder: "Nome",
-                    text: $viewModel.name
+                    placeholder: "Nome completo",
+                    text: $name
+                )
+                if !name.isEmpty && !isValidName {
+                    ValidationMessageView(message: "Por favor, insira nome e sobrenome.")
+                }
+
+                CustomTextField(
+                    iconName: "ellipsis.rectangle",
+                    placeholder: "Digite sua senha",
+                    text: $password,
+                    isSecure: true
                 )
 
                 CustomTextField(
                     iconName: "ellipsis.rectangle",
-                    placeholder: "Senha",
-                    text: $viewModel.password,
-                    isSecure: true
-                )
-
-                CustomTextField(
-                    iconName: "ellipsis.rectangle.fill",
                     placeholder: "Confirmar senha",
                     text: $viewModel.confirmPassword,
                     isSecure: true
                 )
-
+                if !password.isEmpty && !confirmPassword.isEmpty && !passwordsMatch {
+                    ValidationMessageView(message: "As senhas não coincidem.")
+                }
                 Button("CADASTRAR") {
                     print("""
                         Email: \(viewModel.email)
@@ -79,11 +111,12 @@ struct RegisterView: View {
                     viewModel.signIn()
                 }
                 .padding()
-                .frame(maxWidth: 194, maxHeight: 40)
-                .background(Color("SecundaryAppColor"))
+                .frame(maxWidth: 194, maxHeight: Spacing.large)
+                .background(isButtonDisabled ? Color.gray : Color("SecundaryAppColor"))
                 .foregroundColor(.white)
                 .cornerRadius(Spacing.small)
                 .font(.heeboBoldBody)
+                .disabled(isButtonDisabled)
             }
             .padding(.bottom, 100)
         }
