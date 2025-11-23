@@ -24,6 +24,7 @@ struct TabViewConstants {
 }
 
 struct TabViewContainer: View {
+    @EnvironmentObject private var authManager: AuthManager
     @State var selectedTab: TabKey
 
     var body: some View {
@@ -49,7 +50,7 @@ struct TabViewContainer: View {
                 systemImage: TabViewConstants.profileIcon,
                 value: .profile
             ) {
-                ProfileView()
+                ProfileView(authManager: authManager)
             }
         }
         .tint(.white)
