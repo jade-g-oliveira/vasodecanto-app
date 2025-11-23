@@ -12,6 +12,10 @@ struct RegisterView: View {
     @State private var name = ""
     @State private var password = ""
     @State private var confirmPassword = ""
+    
+    var isButtonDisabled: Bool {
+        email.isEmpty || name.isEmpty || password.isEmpty || confirmPassword.isEmpty
+    }
 
     var body: some View {
         ZStack {
@@ -57,13 +61,13 @@ struct RegisterView: View {
 
                 CustomTextField(
                     iconName: "ellipsis.rectangle",
-                    placeholder: "Senha",
+                    placeholder: "Digite sua senha",
                     text: $password,
                     isSecure: true
                 )
 
                 CustomTextField(
-                    iconName: "ellipsis.rectangle.fill",
+                    iconName: "ellipsis.rectangle",
                     placeholder: "Confirmar senha",
                     text: $confirmPassword,
                     isSecure: true
@@ -78,11 +82,12 @@ struct RegisterView: View {
                         """)
                 }
                 .padding()
-                .frame(maxWidth: 194, maxHeight: 40)
-                .background(Color("SecundaryAppColor"))
+                .frame(maxWidth: 194, maxHeight: Spacing.large)
+                .background(isButtonDisabled ? Color.gray : Color("SecundaryAppColor"))
                 .foregroundColor(.white)
                 .cornerRadius(Spacing.small)
                 .font(.heeboBoldBody)
+                .disabled(isButtonDisabled)
             }
             .padding(.bottom, 100)
         }
