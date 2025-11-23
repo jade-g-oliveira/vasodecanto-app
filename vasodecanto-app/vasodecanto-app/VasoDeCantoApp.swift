@@ -5,10 +5,29 @@
 
 import SwiftUI
 import UIKit
+import FirebaseCore
+import FirebaseAuth
 
 @main
 struct VasoDeCantoApp: App {
+    @StateObject var authManager = AuthManager(
+            initialUser: Auth.auth().currentUser
+    )
+
     init() {
+        configureTabBarAppereance()
+    }
+
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+                .environmentObject(authManager)
+        }
+    }
+
+    func configureTabBarAppereance() {
         let appearance = UITabBarAppearance()
         let itemAppearance = appearance.stackedLayoutAppearance
 
@@ -29,10 +48,16 @@ struct VasoDeCantoApp: App {
             UITabBar.appearance().scrollEdgeAppearance = appearance
         }
     }
+}
 
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+class AppDelegate: NSObject, UIApplicationDelegate {
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
+    ) -> Bool {
+        FirebaseApp.configure()
+        print("Firebase Configured")
+
+        return true
     }
 }
