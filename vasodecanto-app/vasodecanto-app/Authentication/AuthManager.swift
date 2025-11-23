@@ -1,5 +1,5 @@
 //
-//  AuthManagerr.swift
+//  AuthManager.swift
 //  vasodecanto-app
 //
 //  Created by Bruna Fonseca on 20/11/25.
