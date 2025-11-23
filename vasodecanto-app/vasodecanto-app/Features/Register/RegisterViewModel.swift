@@ -20,6 +20,29 @@ final class RegisterViewModel: ObservableObject {
         self.authManager = authManager
     }
 
+    var isValidName: Bool {
+        let trimmedName = name.trimmingCharacters(in: .whitespacesAndNewlines)
+        return trimmedName.count >= 3 && trimmedName.contains(" ")
+    }
+
+    var isEmailValid: Bool {
+        email.isValidEmail
+    }
+
+    var passwordsMatch: Bool {
+        password == confirmPassword
+    }
+
+    var isButtonDisabled: Bool {
+        let isAnyFieldEmpty = email.isEmpty || name.isEmpty || password.isEmpty || confirmPassword.isEmpty
+
+        if isAnyFieldEmpty {
+            return true
+        }
+
+        return !isEmailValid || !isValidName || !passwordsMatch
+    }
+
     func signIn() {
         guard !email.isEmpty, !password.isEmpty else {
             print("No email or pasword found.")
