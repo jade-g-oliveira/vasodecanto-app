@@ -24,7 +24,10 @@ struct TabViewConstants {
 }
 
 struct TabViewContainer: View {
+    // MARK: When the used key already exists with a previously defined value, the previous value is used and the true value of this current view is ignored.
+    @AppStorage("isFirstAccess") private var isFirstAccess: Bool = true
     @EnvironmentObject private var authManager: AuthManager
+
     @State var selectedTab: TabKey
 
     var body: some View {
@@ -52,6 +55,9 @@ struct TabViewContainer: View {
             ) {
                 ProfileView(authManager: authManager)
             }
+        }
+        .onAppear {
+            isFirstAccess = false
         }
         .tint(.white)
     }

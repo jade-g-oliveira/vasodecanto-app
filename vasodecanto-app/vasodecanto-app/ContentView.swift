@@ -11,10 +11,14 @@ struct ContentView: View {
 
     var body: some View {
         Group {
-            if authManager.isAuthenticated || isFirstAccess {
-                OnboardingView(isFirstAccess: $isFirstAccess)
+            if !authManager.isAuthenticated {
+                if isFirstAccess {
+                    OnboardingView()
+                } else {
+                    TabViewContainer(selectedTab: .search)
+                }
             } else {
-                TabViewContainer(selectedTab: .search)
+                TabViewContainer(selectedTab: .house)
             }
         }
         .animation(.easeInOut(duration: 0.5), value: isFirstAccess)

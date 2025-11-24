@@ -6,40 +6,47 @@
 //
 import SwiftUI
 struct OnboardingView: View {
-    @Binding var isFirstAccess: Bool
+    @AppStorage("isFirstAccess") private var isFirstAccess: Bool = true
+
     var body: some View {
-        ZStack {
-            Color("PrimaryAppColor").ignoresSafeArea()
-            VStack {
-                Spacer()
-                BubbleView(text: "Adicione uma planta ao seu ambiente.")
-                Button(action: {
-                    isFirstAccess = false
-                }, label: {
-                    Image(systemName: "plus")
-                        .font(.heeboBoldGiant)
-                        .foregroundColor(Color("GreenLightColor"))
-                        .padding(Spacing.large)
-                        .background(Color.white)
-                        .clipShape(Circle())
-                        .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
-                })
-                .padding(.top, Spacing.small)
-                Spacer().frame(height: Spacing.big)
-                NavigationLink {
-                    LoginView()
-                        .onAppear {
-                            isFirstAccess = false
-                        }
-                } label: {
-                    Text("Já tenho uma conta")
-                        .font(.heeboBoldBody)
-                        .underline()
-                        .foregroundColor(.white)
+        NavigationStack {
+            ZStack {
+                Color("PrimaryAppColor").ignoresSafeArea()
+
+                VStack {
+                    Spacer()
+
+                    BubbleView(text: "Adicione uma planta ao seu ambiente.")
+
+                    Button {
+                        isFirstAccess = false
+                    } label: {
+                        Image(systemName: "plus")
+                            .font(.heeboBoldGiant)
+                            .foregroundColor(Color("GreenLightColor"))
+                            .padding(Spacing.large)
+                            .background(Color.white)
+                            .clipShape(Circle())
+                            .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
+                    }
+                    .padding(.top, Spacing.small)
+
+                    Spacer()
+                        .frame(height: Spacing.big)
+
+                    NavigationLink {
+                        LoginView()
+                    } label: {
+                        Text("Já tenho uma conta")
+                            .font(.heeboBoldBody)
+                            .underline()
+                            .foregroundColor(.white)
+                    }
+                    .padding(.bottom, 240)
                 }
-                .padding(.bottom, 240)
-            }.padding(.horizontal, Spacing.big)
-            .navigationBarBackButtonHidden(true)
+                .padding(.horizontal, Spacing.big)
+                .navigationBarBackButtonHidden(true)
+            }
         }
     }
 }
@@ -47,6 +54,7 @@ struct OnboardingView: View {
 struct BubbleView: View {
     let text: String
     private let triangleSize: CGFloat = 14
+
     var body: some View {
         Text(text)
             .font(.heeboBoldBody)
@@ -73,5 +81,5 @@ struct BubbleView: View {
 }
 
 #Preview {
-    ContentView()
+    OnboardingView()
 }
