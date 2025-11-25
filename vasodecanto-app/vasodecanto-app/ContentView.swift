@@ -6,13 +6,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var authManager: AuthManager
     @AppStorage("isFirstAccess") private var isFirstAccess: Bool = true
+
     var body: some View {
-        NavigationStack {
-            if isFirstAccess {
-                OnboardingView(isFirstAccess: $isFirstAccess)
+        Group {
+            if !authManager.isAuthenticated {
+                if isFirstAccess {
+                    OnboardingView()
+                } else {
+                    TabViewContainer(selectedTab: .search)
+                }
             } else {
-                TabViewContainer(selectedTab: .search)
+                TabViewContainer(selectedTab: .house)
             }
         }
         .animation(.easeInOut(duration: 0.5), value: isFirstAccess)

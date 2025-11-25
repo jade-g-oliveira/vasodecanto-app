@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct LoginView: View {
+    @EnvironmentObject private var authManager: AuthManager
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -70,7 +72,7 @@ struct LoginView: View {
                     HStack(spacing: Spacing.micro) {
                         Text("Não tem uma conta?")
                             .foregroundColor(.white)
-                        NavigationLink(destination: RegisterView()) {
+                        NavigationLink(destination: RegisterView(authManager: authManager)) {
                             Text("Registre-se")
                                 .foregroundColor(.white)
                                 .fontWeight(.semibold)
