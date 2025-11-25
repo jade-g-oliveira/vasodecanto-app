@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct SingInView: View {
-    @State private var email = ""
-    @State private var password = ""
+    @EnvironmentObject private var authManager: AuthManager
+    @StateObject private var viewModel: SigninViewModel
+
+    init(authManager: AuthManager) {
+        _viewModel = StateObject(wrappedValue: SigninViewModel(authManager: authManager))
+    }
 
     var body: some View {
         ZStack {
@@ -45,21 +49,22 @@ struct SingInView: View {
                 CustomTextField(
                     iconName: "envelope",
                     placeholder: "Digite seu email",
-                    text: $email
+                    text: $viewModel.email
                 )
 
                 CustomTextField(
                     iconName: "ellipsis.rectangle",
                     placeholder: "Senha",
-                    text: $password,
+                    text: $viewModel.password,
                     isSecure: true
                 )
 
                 Button("LOGIN") {
                     print("""
-                        Email: \(email)
-                        Senha: \(password)
+                        Email: \(viewModel.email)
+                        Senha: \(viewModel.password)
                         """)
+                    viewModel.logIn()
                 }
                 .padding()
                 .frame(maxWidth: 194, maxHeight: 40)
@@ -75,5 +80,5 @@ struct SingInView: View {
 }
 
 #Preview {
-    SingInView()
+    SingInView(authManager: AuthManager(initialUser: nil))
 }
