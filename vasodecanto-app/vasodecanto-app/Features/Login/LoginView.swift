@@ -27,7 +27,7 @@ struct LoginView: View {
 
                     VStack(spacing: Spacing.extraSmall) {
                         // Botão de Login
-                        NavigationLink(destination: SingInView()) {
+                        NavigationLink(destination: SingInView(authManager: authManager)) {
                             Text("LOGIN")
                                 .font(.heeboBoldBody)
                                 .foregroundColor(.white)

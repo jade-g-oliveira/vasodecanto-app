@@ -51,7 +51,13 @@ class AuthManager: ObservableObject {
     }
 
     func registerUser(email: String, password: String) async throws -> AuthDataResult {
-        return try await Auth.auth().createUser(withEmail: email, password: password)
+        let resultData = try await Auth.auth().createUser(withEmail: email, password: password)
+        return resultData
+    }
+
+    func signIn(email: String, password: String) async throws -> AuthDataResult {
+            let resultData = try await Auth.auth().signIn(withEmail: email, password: password)
+            return resultData
     }
 
     func signOut() {
