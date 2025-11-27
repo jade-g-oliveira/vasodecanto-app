@@ -21,9 +21,13 @@ final class MyListViewModel: ObservableObject {
 
     @Published var isEditing: Bool = false
 
-    func createList() {
-        // Placeholder: in a real app, present a sheet to create a list
-        let new = MyList(id: UUID(), title: "Nova lista", itemCount: 0, imageName: "livingroom")
+    func createList(withTitle title: String) {
+
+        let trimmedTitle = title.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        let safeTitle = trimmedTitle.isEmpty ? "Lista Sem Título" : trimmedTitle
+
+        let new = MyList(id: UUID(), title: safeTitle, itemCount: 0, imageName: "livingroom")
         lists.append(new)
     }
 
@@ -31,7 +35,6 @@ final class MyListViewModel: ObservableObject {
         lists.removeAll { $0.id == list.id }
     }
 }
-
 #Preview {
     TabViewContainer(selectedTab: .house)
 }
