@@ -65,7 +65,7 @@ struct MyListScreen: View {
         }
         .navigationBarHidden(true)
         .alert("Nova Lista", isPresented: $showingAddListAlert) {
-            TextField("Nome da Lista", text: $newListTitle)
+            TextField("Ex: Sala, Quarto, Cozinha...", text: $newListTitle)
 
             Button("Criar") {
                 viewModel.createList(withTitle: newListTitle)
