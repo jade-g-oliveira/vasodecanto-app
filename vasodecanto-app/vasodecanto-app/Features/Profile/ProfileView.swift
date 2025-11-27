@@ -8,13 +8,11 @@
 import SwiftUI
 
 struct ProfileView: View {
-    // Dados simulados do usuário
-    let userName: String = "Nome do Usuário"
-    let userEmail: String = "teste.email@gmail.com"
 
     @EnvironmentObject private var authManager: AuthManager
     @StateObject private var viewModel: ProfileViewModel
     @State private var showingLogoutAlert = false
+    @State private var showingLoginSheet = false
 
     init(authManager: AuthManager) {
         _viewModel = StateObject(wrappedValue: ProfileViewModel(authManager: authManager))
@@ -23,30 +21,32 @@ struct ProfileView: View {
     var body: some View {
         VStack {
             Spacer(minLength: Spacing.giant)
-
-            // Seção do perfil (avatar, nome e e-mail)
             VStack(spacing: Spacing.small) {
                 Circle()
                     .fill(Color(.systemGray4))
                     .frame(width: 170, height: 170)
-
-                Text(userName)
-                    .font(.heeboBoldBody)
-                    .foregroundStyle(Color("GreenTextColor"))
-
-                Text(userEmail)
-                    .font(.heeboBody)
-                    .foregroundStyle(Color("GreenTextColor"))
+                
+                if authManager.isAuthenticated, let user = authManager.currentUser {
+                    Text(user.name ?? "")
+                        .font(.heeboBoldBody)
+                        .foregroundStyle(Color("GreenTextColor"))
+                    Text(user.email ?? "")
+                        .font(.heeboBody)
+                        .foregroundStyle(Color("GreenTextColor"))
+                }
             }
             .padding(.vertical, Spacing.regular)
 
             Spacer()
 
-            // Botão de logoff
             Button {
-                showingLogoutAlert = true
+                if authManager.isAuthenticated {
+                    showingLogoutAlert = true
+                } else {
+                    showingLoginSheet = true
+                }
             } label: {
-                Text("Fazer logoff")
+                Text(authManager.isAuthenticated ? "Fazer logoff" : "Fazer login")
                     .font(.heeboSemiBoldBody)
                     .foregroundStyle(Color(.systemRed))
                     .frame(maxWidth: .infinity)
@@ -59,10 +59,13 @@ struct ProfileView: View {
                     )
             }
             .padding(.horizontal, Spacing.regular)
+            .sheet(isPresented: $showingLoginSheet) {
+                            LoginView()
+                                .environmentObject(authManager)
+                        }
             .alert("Deseja sair da sua conta?", isPresented: $showingLogoutAlert) {
                 Button("Cancelar", role: .cancel) { }
                 Button("Sair", role: .destructive) {
-                    print("Usuário saiu")
                     try? viewModel.logOut()
                 }
             } message: {
@@ -72,6 +75,10 @@ struct ProfileView: View {
             Spacer(minLength: Spacing.giant)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color("GrayBackgroundColor")) // Fundo claro
+        .background(Color("GrayBackgroundColor"))
     }
+}
+
+#Preview {
+    ProfileView(authManager: AuthManager(initialUser: nil))
 }
