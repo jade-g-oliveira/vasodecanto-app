@@ -30,6 +30,7 @@ struct MyListCard: View {
                     )
                 )
                 .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+
             VStack(alignment: .leading, spacing: Spacing.micro) {
                 Text(list.title.uppercased())
                     .font(.staatlichesRegularTitle)
@@ -45,6 +46,7 @@ struct MyListCard: View {
                 HStack {
                     Spacer()
                     Button(role: .destructive) {
+
                         showingDeleteAlert = true
                     } label: {
                         Image(systemName: "trash")
@@ -53,14 +55,16 @@ struct MyListCard: View {
                             .background(.regularMaterial)
                             .clipShape(Circle())
                     }
-                    .alert("Confirmar Exclusão", isPresented: $showingDeleteAlert){
+
+                    .alert("Confirmar Exclusão", isPresented: $showingDeleteAlert) {
+
                         Button("Excluir", role: .destructive) {
                             onDelete()
                         }
-                        Button("Cancelar", role: .cancel) {
-                        }
+
+                        Button("Cancelar", role: .cancel) { }
                     } message: {
-                        Text("Tem certeza que deseja excluir \(list.title)?")
+                        Text("Tem certeza de que deseja excluir a lista \"\(list.title)\"? Esta ação não pode ser desfeita.")
                     }
                 }
                 .padding(Spacing.small)
@@ -73,6 +77,7 @@ struct MyListCard: View {
         }
     }
 }
+
 #Preview {
     TabViewContainer(selectedTab: .house)
 }

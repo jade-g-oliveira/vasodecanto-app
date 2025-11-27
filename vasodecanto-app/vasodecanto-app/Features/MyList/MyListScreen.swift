@@ -11,6 +11,9 @@ struct MyListScreen: View {
     @StateObject private var viewModel = MyListViewModel()
     @State var goToPlants = false
 
+    @State private var showingAddListAlert = false
+    @State private var newListTitle: String = ""
+
     var body: some View {
         ZStack(alignment: .bottom) {
             Group {
@@ -39,7 +42,7 @@ struct MyListScreen: View {
                             }
 
                             CreateListButton(action: {
-                                viewModel.createList()
+                                showingAddListAlert = true
                             })
                             .padding(.horizontal, Spacing.small)
                             .padding(.top, Spacing.small)
@@ -61,9 +64,22 @@ struct MyListScreen: View {
             .background(Color(.systemGroupedBackground))
         }
         .navigationBarHidden(true)
-    }
-}
+        .alert("Nova Lista", isPresented: $showingAddListAlert) {
+            TextField("Ex: Sala, Quarto, Cozinha...", text: $newListTitle)
 
-#Preview {
-    TabViewContainer(selectedTab: .house)
+            Button("Criar") {
+                viewModel.createList(withTitle: newListTitle)
+                newListTitle = ""
+            }
+            Button("Cancelar", role: .cancel) {
+                newListTitle = ""
+            }
+        } message: {
+            Text("Digite o nome para sua nova lista.")
+        }
+    }
+
+    #Preview {
+        TabViewContainer(selectedTab: .house)
+    }
 }
