@@ -1,12 +1,4 @@
-//
-//  SingInView.swift
-//  vasodecanto-app
-//
-//  Created by Adan on 22/10/25.
-//
-
 import SwiftUI
-
 struct SingInView: View {
     @EnvironmentObject private var authManager: AuthManager
     @StateObject private var viewModel: SigninViewModel
@@ -17,7 +9,6 @@ struct SingInView: View {
 
     var body: some View {
         ZStack {
-
             Image("backGroundLogin")
                 .resizable()
                 .scaledToFill()
@@ -59,6 +50,15 @@ struct SingInView: View {
                     isSecure: true
                 )
 
+                // MENSAGEM DE ERRO
+                if let errorMessage = viewModel.errorMessage {
+                    Text(errorMessage)
+                        .foregroundColor(.red)
+                        .font(.heeboBoldBody)
+                        .multilineTextAlignment(.center)
+                        .padding([.bottom, .horizontal])
+                }
+
                 Button("LOGIN") {
                     print("""
                         Email: \(viewModel.email)
@@ -67,18 +67,13 @@ struct SingInView: View {
                     viewModel.logIn()
                 }
                 .padding()
-                .frame(maxWidth: 194, maxHeight: 40)
-                .background(Color("SecundaryAppColor"))
-                .foregroundColor(.white)
-                .cornerRadius(Spacing.small)
-                .font(.heeboBoldBody)
+                    .frame(maxWidth: 194, maxHeight: 40)
+                    .background(Color("SecundaryAppColor"))
+                    .foregroundColor(.white)
+                    .cornerRadius(Spacing.small)
+                    .font(.heeboBoldBody)
             }
             .padding(.bottom, 100)
-
         }
     }
-}
-
-#Preview {
-    SingInView(authManager: AuthManager(initialUser: nil))
 }
